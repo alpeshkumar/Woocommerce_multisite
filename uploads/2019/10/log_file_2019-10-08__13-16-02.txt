@@ -1,0 +1,76 @@
+
+---Downloaded files---
+The import files for: Theme Demo Content were successfully downloaded!
+Initial max execution time = 600
+Files info:
+Site URL = http://localhost/ab/thisiswhywesearch
+Data file = D:\xampp70\htdocs\ab\thisiswhywesearch/wp-content/themes/woocommerce-multisite/includes/demo/demo-content/content.xml
+Widget file = D:\xampp70\htdocs\ab\thisiswhywesearch/wp-content/themes/woocommerce-multisite/includes/demo/demo-content/widget.wie
+Customizer file = D:\xampp70\htdocs\ab\thisiswhywesearch/wp-content/themes/woocommerce-multisite/includes/demo/demo-content/customizer.dat
+Redux files:
+not defined!
+
+------
+New AJAX call!
+
+
+------
+New AJAX call!
+
+
+------
+New AJAX call!
+
+
+------
+New AJAX call!
+
+
+---Importing widgets---
+Blog Sidebar : 
+
+Search - No Title - Widget already exists
+Recent Posts - No Title - Widget already exists
+Archives - No Title - Widget already exists
+
+Shop Sidebar : 
+
+Filter Products by Price - Filter by price - Imported
+Gallery - Product Gallery - Imported
+Product Categories - Product categories - Imported
+Products by Rating - Top rated products - Imported
+
+Advertisements Below Slider : 
+
+ecommerce-gem-advertisement - LADIES - Site does not support widget
+ecommerce-gem-advertisement - FOOTWARE - Site does not support widget
+ecommerce-gem-advertisement - SMART - Site does not support widget
+
+Home Page Widget Area : 
+
+ecommerce-gem-featured-categories - Featured Categories - Site does not support widget
+ecommerce-gem-cta - Trending Season - Site does not support widget
+ecommerce-gem-latest-products - Featured Products - Site does not support widget
+ecommerce-gem-latest-news - Latest News - Site does not support widget
+ecommerce-gem-newsletter - Subscribe Newsletter - Site does not support widget
+
+Footer 1 : 
+
+Text - About eCommerce Gem - Imported
+ecommerce-gem-social - No Title - Site does not support widget
+
+Footer 2 : 
+
+ecommerce-gem-contact - Contact Us - Site does not support widget
+
+Footer 3 : 
+
+ecommerce-gem-features - No Title - Site does not support widget
+
+
+
+---Importing customizer settings---
+Error: The customizer import file is not suitable for current theme. You can only import customizer settings for the same theme or a child theme.
+
+---pt-ocdi/after_import---
+

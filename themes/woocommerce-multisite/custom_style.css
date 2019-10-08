@@ -1,0 +1,60 @@
+/*
+Theme Name: Woocommerce Multisite Child
+Text Domain: woocommerce-multisite
+Template: woocommerce-multisite
+Version: 1.0
+*
+*/
+
+.top-header {
+    background: #333;
+}
+.top-left span i,
+.top-header .top-cart-wrapper a i, 
+.top-header .top-wishlist-wrapper a i,
+.top-account-wrapper a i,
+a,
+a:hover,
+a:visited
+{
+    color: #108BDE;
+}
+.top-header .top-account-wrapper ul#my-account-menu, .top-header .top-account-wrapper ul#my-account-menu ul{margin:0;list-style:none;}
+.top-header .top-account-wrapper ul#my-account-menu li{line-height:1;}
+.top-header .top-account-wrapper ul#my-account-menu li a{font-size:15px;}
+.top-header .top-account-wrapper ul#my-account-menu > li > a:after{content: "\f107";
+    font-family: FontAwesome;
+    margin-left: 7px;
+    transform: translate(0%, -50%);
+    -moz-transform: translate(0%, -50%);
+    -webkit-transform: translate(0%, -50%);
+    -ms-transform: translate(0%, -50%);
+    -o-transform: translate(0%, -50%);
+    position: absolute;
+    top: 25px;}
+.top-header .top-account-wrapper ul#my-account-menu li ul.sub-menu{display:none;    
+	background: #333;
+    padding: 12px 33px;
+    position: absolute;
+    z-index: 999;
+    top: 48px;
+    right: 6.6%;}
+.top-header .top-account-wrapper ul#my-account-menu > li:hover ul.sub-menu{display:block;}
+.top-header .top-account-wrapper ul#my-account-menu > li ul.sub-menu li:hover{display:block;}
+
+.main-navigation .top-cart-wrapper .top-icon-wrap .cart-value{
+    background: #108BDE;
+    position: absolute;
+    height: 17px;
+    width: 17px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 17px;
+    color: #fff;
+    font-size: 12px;
+    right: 5px;
+}
+
+.main-navigation ul li.menu-item .search-holder .fa{
+    line-height: 2;
+}
