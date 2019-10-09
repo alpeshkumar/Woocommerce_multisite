@@ -54,7 +54,7 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 # Normalize
 --------------------------------------------------------------*/
 html {
-    font-family: sans-serif;
+    font-family: 'Roboto';
     -webkit-text-size-adjust: 100%;
     -ms-text-size-adjust:     100%;
 }
@@ -289,7 +289,7 @@ body {
     font-size: 15px;
     line-height: 26px;
     margin: 0;
-    font-family: 'Barlow', sans-serif;
+    font-family: 'Roboto', sans-serif;
 }
 
 h1,
@@ -303,24 +303,24 @@ p {
 }
 h1, h2, h3, h4, h5, h6 {
     color: #515151;
-    font-family: 'Barlow', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-weight: 600;
 }
 
 h1 {
-    font-size: 28px;
+    font-size: 32px;
 }
 
 h2 {
-    font-size: 24px;
+    font-size: 28px;
 }
 
 h3{
-    font-size: 20px;
+    font-size: 24px;
 }
 
 h4 {
-    font-size: 18px;
+    font-size: 20px;
 }
 
 h5 {
@@ -487,7 +487,7 @@ button,
     line-height: 1;
     padding: 13px 35px;
     display: inline-block;
-    font-family: 'Barlow', sans-serif;
+    font-family: 'Roboto', sans-serif;
     border-radius:0px;
     font-weight: 600;
     text-transform: uppercase;
@@ -682,7 +682,7 @@ a:active {
 .main-navigation ul li a {
     color: #11101d;
     display: block;
-    font-family: 'Barlow', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 15px;
     font-weight: normal;
     padding: 35px 20px;
@@ -1635,7 +1635,7 @@ object {
 
 p,
 li {
-  font-family: 'Barlow', sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-weight: 400;
   font-size: 18px;
   line-height: 28px;
@@ -1811,7 +1811,7 @@ li {
     color: #11101d;
     font-size: 28px;
     margin-bottom: 0;
-    font-family: 'Barlow', sans-serif;
+    font-family: 'Roboto', sans-serif;
 
 }
 .site-branding {
@@ -3225,7 +3225,6 @@ body.woocommerce-checkout .top-cart-content {
 }
 
 #content {
-    padding: 40px 0 40px 0px;
     clear: both;
 }
 
@@ -3470,7 +3469,6 @@ body.woocommerce-checkout .top-cart-content {
     background-color: #100e1c;
     clear: both;
     color: #ffffff;
-    padding-bottom: 85px;
     text-align: center;
 }
 
@@ -4334,7 +4332,7 @@ blockquote p{
 }
 
 .products {
-    margin-top: 30px !important;
+    margin-top: 15px !important;
     display: inline-block;
 }
 

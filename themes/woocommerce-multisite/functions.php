@@ -41,8 +41,8 @@ function ecommerce_gem_setup() {
 	 * Enable support for custom logo.
 	 */
 	add_theme_support( 'custom-logo', array(
-                'height'      => 70,
-                'width'       => 220,
+                'height'      => 60,
+                'width'       => 400,
 	) );
 
 	/*

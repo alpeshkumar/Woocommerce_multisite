@@ -574,22 +574,3 @@ if ( ! function_exists( 'ecommerce_gem_after_content_action' ) ) :
     }
 endif;
 add_action( 'ecommerce_gem_after_content', 'ecommerce_gem_after_content_action' );
-
-//=============================================================
-// Credit info hook of the theme
-//=============================================================
-if ( ! function_exists( 'ecommerce_gem_credit_info' ) ) :
-
-    function ecommerce_gem_credit_info(){ ?>
-
-        <div class="site-info">
-            <?php printf( esc_html__( '%1$s by %2$s', 'woocommerce-multisite' ), 'Woocommerce', 'Multisite' ); ?>
-        </div><!-- .site-info -->
-
-        <?php 
-         
-    }
-
-endif;
-
-add_action( 'ecommerce_gem_credit', 'ecommerce_gem_credit_info', 10 );

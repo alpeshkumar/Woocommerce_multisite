@@ -26,6 +26,7 @@
 				<?php 
 
 				$copyright_text = ecommerce_gem_get_option( 'copyright_text' ); 
+				$powered_by_text = ecommerce_gem_get_option( 'powered_by_text' ); 
 
 				if ( ! empty( $copyright_text ) ) : ?>
 
@@ -38,11 +39,11 @@
 					<?php 
 
 				endif; 
-
-				do_action( 'ecommerce_gem_credit' ); 
-
 				?>
-			</div>
+				<div class="site-info">
+				<?php echo wp_kses_data( $powered_by_text ); ?>
+				</div><!-- .site-info -->
+					</div>
 		</div><!-- .container -->
 	</footer><!-- #colophon -->
 </div><!-- #page -->

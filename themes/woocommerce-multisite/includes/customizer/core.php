@@ -89,6 +89,7 @@ if ( ! function_exists( 'ecommerce_gem_get_default_theme_options' ) ) :
         
         // Footer.
         $defaults['copyright_text']     = esc_html__( 'Copyright &copy; All rights reserved.', 'woocommerce-multisite' );
+        $defaults['powered_by_text']     = esc_html__( 'Powered by: .', 'woocommerce-multisite' );
 
         // Breadcrumb.
         $defaults['breadcrumb_type']    = 'simple';
