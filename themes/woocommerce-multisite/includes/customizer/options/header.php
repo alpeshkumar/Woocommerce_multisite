@@ -126,6 +126,22 @@ $wp_customize->add_control( 'theme_options[top_address]',
 	)
 );
 
+// Setting Site Text.
+$wp_customize->add_setting( 'theme_options[top_site_text]',
+	array(
+		'sanitize_callback' => 'sanitize_text_field',
+	)
+);
+$wp_customize->add_control( 'theme_options[top_site_text]',
+	array(
+		'label'    			=> esc_html__( 'Site Text', 'woocommerce-multisite' ),
+		'section'  			=> 'section_header',
+		'type'     			=> 'text',
+		'priority' 			=> 100,
+		'active_callback' 	=> 'ecommerce_gem_is_top_header_information_active',
+	)
+);
+
 // Setting Phone.
 $wp_customize->add_setting( 'theme_options[top_phone]',
 	array(

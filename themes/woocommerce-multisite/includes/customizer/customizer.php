@@ -43,20 +43,6 @@ function ecommerce_gem_customize_register( $wp_customize ) {
 	// Register custom section types.
 	$wp_customize->register_section_type( 'eCommerce_Gem_Customize_Section_Upsell' );
 
-	// Register sections.
-	$wp_customize->add_section(
-		new eCommerce_Gem_Customize_Section_Upsell(
-			$wp_customize,
-			'theme_upsell',
-			array(
-				'title'    => esc_html__( 'Woocommerce Multisite Plus', 'woocommerce-multisite' ),
-				'pro_text' => esc_html__( 'Buy PRO', 'woocommerce-multisite' ),
-				'pro_url'  => 'https://www.prodesigns.com/wordpress-themes/downloads/ecommerce-gem-plus',
-				'priority' => 1,
-			)
-		)
-	);
-
 }
 add_action( 'customize_register', 'ecommerce_gem_customize_register' );
 

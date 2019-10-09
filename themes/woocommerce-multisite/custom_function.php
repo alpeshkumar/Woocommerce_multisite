@@ -369,3 +369,44 @@ if ( ! function_exists( 'ecommerce_gem_top_header_action' ) ) :
 endif;
 
 add_action( 'ecommerce_gem_top_header', 'ecommerce_gem_top_header_action' );
+
+
+//=============================================================
+// Store Information hook of the theme
+//=============================================================
+if ( ! function_exists( 'ecommerce_gem_top_header_store_information_action' ) ) :
+    /**
+     * Store Information Start.
+     *
+     * @since 1.0.0
+     */
+    function ecommerce_gem_top_header_store_information_action() { 
+
+        $top_address    = ecommerce_gem_get_option( 'top_address' );
+        $top_site_text    = ecommerce_gem_get_option( 'top_site_text' );
+        $top_phone      = ecommerce_gem_get_option( 'top_phone' );
+        $top_email      = ecommerce_gem_get_option( 'top_email' ); 
+        if( !empty( $top_address ) || !empty( $top_phone ) || !empty( $top_email ) ){ ?>
+            <div class="top-left-inner">
+                <?php if( !empty( $top_address ) ){ ?>
+                    <span class="address"><i class="fa fa-map-marker" aria-hidden="true"></i> <?php echo esc_html( $top_address ); ?></span>
+                <?php } ?>
+				
+				<?php if( !empty( $top_site_text ) ){ ?>
+                    <span class="site_text"><?php echo esc_html( $top_site_text ); ?></span>
+                <?php } ?>
+
+                <?php if( !empty( $top_phone ) ){ ?>
+                    <span class="phone"><i class="fa fa-phone" aria-hidden="true"></i> <?php echo esc_html( $top_phone ); ?></span>
+                <?php } ?>
+
+                <?php if( !empty( $top_email ) ){ ?>
+                    <span class="fax"><i class="fa fa-envelope-o" aria-hidden="true"></i> <?php echo esc_html( $top_email ); ?></span>
+                <?php } ?>
+                
+            </div><?php 
+        } 
+    }
+endif;
+
+add_action( 'ecommerce_gem_top_header_store_information', 'ecommerce_gem_top_header_store_information_action' );
