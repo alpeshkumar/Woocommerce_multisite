@@ -38,7 +38,15 @@ require_once trailingslashit( get_template_directory() ) . '/includes/tgm/class-
 if ( is_admin() ) {
 	// Load about.
 	require_once trailingslashit( get_template_directory() ) . 'includes/theme-info/class-about.php';
-	require_once trailingslashit( get_template_directory() ) . 'includes/theme-info/about.php';
+	
+	
+	/*
+	* Comment by Kishan Kothari
+	* note : remove theme details from Wordpress Admin
+	* date : 9th October 2019
+	*/
+	//require_once trailingslashit( get_template_directory() ) . 'includes/theme-info/about.php';
+	
 
 	// Load demo.
 	require_once trailingslashit( get_template_directory() ) . 'includes/demo/class-demo.php';

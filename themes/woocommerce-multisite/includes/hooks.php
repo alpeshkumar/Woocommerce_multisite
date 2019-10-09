@@ -583,7 +583,7 @@ if ( ! function_exists( 'ecommerce_gem_credit_info' ) ) :
     function ecommerce_gem_credit_info(){ ?>
 
         <div class="site-info">
-            <?php printf( esc_html__( '%1$s by %2$s', 'woocommerce-multisite' ), 'Woocommerce Multisite', '<a href="https://www.prodesigns.com/" rel="designer">ProDesigns</a>' ); ?>
+            <?php printf( esc_html__( '%1$s by %2$s', 'woocommerce-multisite' ), 'Woocommerce', 'Multisite' ); ?>
         </div><!-- .site-info -->
 
         <?php 
