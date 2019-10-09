@@ -6,9 +6,9 @@ Version: 1.0
 *
 */
 
-.top-header {
-    background: #333;
-}
+/*
+* Color 
+*/
 .top-left span i,
 .top-header .top-cart-wrapper a i, 
 .top-header .top-wishlist-wrapper a i,
@@ -18,6 +18,23 @@ a:hover,
 a:visited
 {
     color: #108BDE;
+}
+
+
+/*
+* Background Color 
+*/
+h1.page-title:after
+{
+    background: #108BDE;
+}
+
+
+/*
+* Top Header
+*/
+.top-header {
+    background: #333;
 }
 .top-header .top-account-wrapper ul#my-account-menu, .top-header .top-account-wrapper ul#my-account-menu ul{margin:0;list-style:none;}
 .top-header .top-account-wrapper ul#my-account-menu li{line-height:1;}
@@ -42,6 +59,10 @@ a:visited
 .top-header .top-account-wrapper ul#my-account-menu > li:hover ul.sub-menu{display:block;}
 .top-header .top-account-wrapper ul#my-account-menu > li ul.sub-menu li:hover{display:block;}
 
+
+/*
+* Main Menu
+*/
 .main-navigation .top-cart-wrapper .top-icon-wrap .cart-value{
     background: #108BDE;
     position: absolute;
@@ -54,7 +75,29 @@ a:visited
     font-size: 12px;
     right: 5px;
 }
-
 .main-navigation ul li.menu-item .search-holder .fa{
     line-height: 2;
+}	
+.main-navigation ul li.menu-item.custom_cart_menu ul{
+    left:0;
+	opacity:1;
+	top:0;	
+	background: transparent;
+	position: unset;
+}
+.main-navigation ul li.menu-item.custom_cart_menu ul.cart_list  li.mini_cart_item a{
+    border:unset;
+	padding:0;
+}
+.main-navigation ul li.menu-item.custom_cart_menu .widget_shopping_cart_content .buttons a{
+    font-size:15px;
+}
+
+
+/*
+* My Account Page
+*/
+#add_payment_method .wc-proceed-to-checkout a.checkout-button, .woocommerce-cart .wc-proceed-to-checkout a.checkout-button, .woocommerce-checkout .wc-proceed-to-checkout a.checkout-button, .woocommerce .cart .button, .woocommerce .cart input.button, .woocommerce a.button, .woocommerce #payment #place_order, .woocommerce-page #payment #place_order, .woocommerce #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt, .woocommerce #review_form #respond .form-submit input {
+    background-color: #108BDE;
+    border: 1px solid #108BDE;
 }
