@@ -29,18 +29,16 @@ function add_search_form($items, $args) {
 		* Cart Icon Menu
 		*/
 		$cart_icon  = ecommerce_gem_get_option( 'cart_icon' );
-		$items .= '<li class="menu-item">';
-		
-		$items .= '<div class="top-cart-wrapper">
-                        <div class="top-icon-wrap">';		
+		$items .= '<li class="menu-item custom_cart_menu">';		
+		$items .= '<div class="top-cart-wrapper">';		
+		$items .= '<div class="top-icon-wrap">';		
 		$items .= '<a href="' . esc_url( wc_get_cart_url() ) . '">';
 		$items .= '<i class="fa ' .  esc_attr( $cart_icon ) . '" aria-hidden="true"></i>';
 		$items .= '<span class="cart-value ec-cart-fragment"> ' .  wp_kses_data( WC()->cart->get_cart_contents_count() ) . '</span>';
 		$items .= '</a>';
-		$items .= '</div>';
-		//$items .= '<div class="top-cart-content">' .  the_widget( "WC_Widget_Cart", "" ) . '</div>';
-		$items .= '</div>';
-		
+		$items .= '</div>';		
+		$items .= "<div class='top-cart-content'>" .   do_shortcode('[custom_cart]') . "</div>";
+		$items .= '</div>';		
 		$items .= '</li>';
 		
 		
@@ -410,3 +408,11 @@ if ( ! function_exists( 'ecommerce_gem_top_header_store_information_action' ) ) 
 endif;
 
 add_action( 'ecommerce_gem_top_header_store_information', 'ecommerce_gem_top_header_store_information_action' );
+
+function custom_cart_callback()
+{
+	ob_start();
+	the_widget( 'WC_Widget_Cart', '' );
+	return ob_get_clean();
+}
+add_shortcode('custom_cart', 'custom_cart_callback');
