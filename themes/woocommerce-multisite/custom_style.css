@@ -7,11 +7,8 @@ Version: 1.0
 */
 
 /*
-* Top Header
+* Color 
 */
-.top-header {
-    background: #333;
-}
 .top-left span i,
 .top-header .top-cart-wrapper a i, 
 .top-header .top-wishlist-wrapper a i,
@@ -21,6 +18,23 @@ a:hover,
 a:visited
 {
     color: #108BDE;
+}
+
+
+/*
+* Background Color 
+*/
+h1.page-title:after
+{
+    background: #108BDE;
+}
+
+
+/*
+* Top Header
+*/
+.top-header {
+    background: #333;
 }
 .top-header .top-account-wrapper ul#my-account-menu, .top-header .top-account-wrapper ul#my-account-menu ul{margin:0;list-style:none;}
 .top-header .top-account-wrapper ul#my-account-menu li{line-height:1;}
