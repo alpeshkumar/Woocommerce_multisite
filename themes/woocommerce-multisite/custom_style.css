@@ -101,3 +101,22 @@ h1.page-title:after
     background-color: #108BDE;
     border: 1px solid #108BDE;
 }
+.wpb-js-composer .vc_tta-color-grey.vc_tta-style-flat.ab_product_tab .vc_tta-tab > a {
+	background-color: inherit;
+	color: #777777;
+}
+.wpb-js-composer .vc_tta-color-grey.vc_tta-style-flat.ab_product_tab .vc_tta-tab.vc_active > a {
+	background-color: inherit;
+	color: #0891df;
+}
+.wpb-js-composer .vc_tta-color-grey.vc_tta-style-flat.ab_product_tab .vc_tta-tab > a:focus{
+    background-color: inherit;
+    color: #0891df;
+} 
+.wpb-js-composer .vc_tta-color-grey.vc_tta-style-flat.ab_product_tab .vc_tta-tab > a:hover {
+    background-color: inherit;
+    color: #f93d77;
+}
+.wpb-js-composer .vc_tta.vc_general.ab_product_tab .vc_tta-tab > a {
+	padding: 2px 20px;
+}
