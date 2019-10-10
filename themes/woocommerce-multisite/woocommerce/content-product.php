@@ -48,16 +48,7 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 		 */
 		do_action( 'woocommerce_before_shop_loop_item_title' ); ?>
 
-		<div class="add-to-cart-wrap">
-			<?php 
-			/**
-			 * woocommerce_after_shop_loop_item hook.
-			 *
-			 * @hooked woocommerce_template_loop_product_link_close - 5
-			 * @hooked woocommerce_template_loop_add_to_cart - 10
-			 */
-			do_action( 'woocommerce_after_shop_loop_item' ); ?>
-		</div>
+		
 		<?php 
 
 		$show_detail_icon = ecommerce_gem_get_option( 'show_detail_icon' );
@@ -121,5 +112,15 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 		do_action( 'woocommerce_after_shop_loop_item_title' );
 
 		?>
+		<div class="add-to-cart-wrap">
+			<?php 
+			/**
+			 * woocommerce_after_shop_loop_item hook.
+			 *
+			 * @hooked woocommerce_template_loop_product_link_close - 5
+			 * @hooked woocommerce_template_loop_add_to_cart - 10
+			 */
+			do_action( 'woocommerce_after_shop_loop_item' ); ?>
+		</div>
 	</div>
 </li>

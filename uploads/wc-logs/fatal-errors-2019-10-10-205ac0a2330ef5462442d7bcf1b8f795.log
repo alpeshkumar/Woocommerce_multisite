@@ -1,0 +1,10 @@
+2019-10-10T16:48:13+00:00 CRITICAL Uncaught Error: Call to undefined function get_rating_html() in D:\xampp70\htdocs\ab\thisiswhywesearch\wp-content\themes\woocommerce-multisite\includes\woo-overrides.php:86
+Stack trace:
+#0 D:\xampp70\htdocs\ab\thisiswhywesearch\wp-includes\class-wp-hook.php(286): ecommerce_gem_woocommerce_template_loop_product_title('')
+#1 D:\xampp70\htdocs\ab\thisiswhywesearch\wp-includes\class-wp-hook.php(310): WP_Hook->apply_filters('', Array)
+#2 D:\xampp70\htdocs\ab\thisiswhywesearch\wp-includes\plugin.php(465): WP_Hook->do_action(Array)
+#3 D:\xampp70\htdocs\ab\thisiswhywesearch\wp-content\themes\woocommerce-multisite\woocommerce\content-product.php(113): do_action('woocommerce_sho...')
+#4 D:\xampp70\htdocs\ab\thisiswhywesearch\wp-includes\template.php(724): require('D:\\xampp70\\htdo...')
+#5 D:\xampp70\htdocs\ab\thisiswhywesearch\wp-content\plugins\woocommerce\includes\wc-core-functions.php(195): load_template('D:\\xampp70\\htdo...', false)
+#6 D:\xampp70\htdocs\ab\thisiswhywesearch\wp-content\plugins\woocommerce\includes in D:\xampp70\htdocs\ab\thisiswhywesearch\wp-content\themes\woocommerce-multisite\includes\woo-overrides.php on line 86
+
