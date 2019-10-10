@@ -6,36 +6,20 @@ Version: 1.0
 *
 */
 
+
+
 /*
 * Color 
 */
-.top-left span i,
-.top-header .top-cart-wrapper a i, 
-.top-header .top-wishlist-wrapper a i,
-.top-account-wrapper a i,
-a,
-a:hover,
-a:visited
+.top-header a i 
 {
     color: #108BDE;
 }
 
 
 /*
-* Background Color 
-*/
-h1.page-title:after
-{
-    background: #108BDE;
-}
-
-
-/*
 * Top Header
 */
-.top-header {
-    background: #333;
-}
 .top-header .top-account-wrapper ul#my-account-menu, .top-header .top-account-wrapper ul#my-account-menu ul{margin:0;list-style:none;}
 .top-header .top-account-wrapper ul#my-account-menu li{line-height:1;}
 .top-header .top-account-wrapper ul#my-account-menu li a{font-size:15px;}
@@ -76,7 +60,7 @@ h1.page-title:after
     right: 5px;
 }
 .main-navigation ul li.menu-item .search-holder .fa{
-    line-height: 2;
+    line-height: 1.7;
 }	
 .main-navigation ul li.menu-item.custom_cart_menu ul{
     left:0;
@@ -95,12 +79,23 @@ h1.page-title:after
 
 
 /*
-* My Account Page
+* Home Page
 */
-#add_payment_method .wc-proceed-to-checkout a.checkout-button, .woocommerce-cart .wc-proceed-to-checkout a.checkout-button, .woocommerce-checkout .wc-proceed-to-checkout a.checkout-button, .woocommerce .cart .button, .woocommerce .cart input.button, .woocommerce a.button, .woocommerce #payment #place_order, .woocommerce-page #payment #place_order, .woocommerce #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt, .woocommerce #review_form #respond .form-submit input {
-    background-color: #108BDE;
-    border: 1px solid #108BDE;
+.home #content {
+	padding: 0;
 }
+
+
+/*
+* Product List
+*/
+.woocommerce ul.products li.product a img
+{
+	margin:0;
+}
+
+
+
 .wpb-js-composer .vc_tta-color-grey.vc_tta-style-flat.ab_product_tab .vc_tta-tab > a {
 	background-color: inherit;
 	color: #777777;
