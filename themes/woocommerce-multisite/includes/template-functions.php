@@ -275,11 +275,6 @@ function ecommerce_gem_register_required_plugins() {
 			'slug'     => 'video-tab-for-woocommerce',
 			'required' => false,
 		),
-                array(
-            		'name'      => esc_html__( 'HubSpot All-In-One Marketing - Forms, Popups, Live Chat', 'woocommerce-multisite' ),
-			'slug'      => 'leadin',
-			'required'  => false,
-		),
 	);
 
 	tgmpa( $plugins );

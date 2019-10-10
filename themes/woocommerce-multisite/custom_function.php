@@ -416,3 +416,21 @@ function custom_cart_callback()
 	return ob_get_clean();
 }
 add_shortcode('custom_cart', 'custom_cart_callback');
+
+
+add_filter('woocommerce_product_get_rating_html', 'product_rating_html', 10, 2);
+
+function product_rating_html($rating_html, $rating) 
+{
+	/*
+	* https://wordpress.org/support/topic/woocommerce-always-show-stars-even-with-no-reviews/
+	*/
+	
+    $rating_html  = '<div class="star-rating">';
+    $rating_html .= wc_get_star_rating_html( $rating, $count );
+    $rating_html .= '</div>';
+	
+	return $rating_html;
+}
+
+add_action('woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_product_title', 6);
