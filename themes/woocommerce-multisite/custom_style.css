@@ -33,15 +33,15 @@ Version: 1.0
     -o-transform: translate(0%, -50%);
     position: absolute;
     top: 25px;}
-.top-header .top-account-wrapper ul#my-account-menu li ul.sub-menu{display:none;    
+.top-header .top-account-wrapper ul#my-account-menu li ul.sub-menu{
+	opacity:0;
 	background: #333;
     padding: 12px 33px;
     position: absolute;
     z-index: 999;
     top: 48px;
     right: 6.6%;}
-.top-header .top-account-wrapper ul#my-account-menu > li:hover ul.sub-menu{display:block;}
-.top-header .top-account-wrapper ul#my-account-menu > li ul.sub-menu li:hover{display:block;}
+.top-header .top-account-wrapper ul#my-account-menu > li:hover ul.sub-menu{opacity:1;}
 
 
 /*
@@ -93,6 +93,9 @@ Version: 1.0
 {
 	margin:0;
 }
+.woocommerce ul.products li.product .product-info-wrap {
+    margin-top: 10px;
+}
 
 
 
@@ -115,7 +118,7 @@ Version: 1.0
 .wpb-js-composer .vc_tta.vc_general.ab_product_tab .vc_tta-tab > a {
 	padding: 2px 20px;
 }
-.woocommerce .star-rating::before {
+.woocommerce .star-rating span, .woocommerce .star-rating::before {
 	color: #ffa202;
 }
 li.product:hover .product-info-wrap .price{

@@ -434,3 +434,38 @@ function product_rating_html($rating_html, $rating)
 }
 
 add_action('woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_product_title', 6);
+
+
+
+
+add_filter( 'woocommerce_get_script_data', 'change_view_cart_text_to_icon', 10, 2 );
+function change_view_cart_text_to_icon( $params, $handle ){
+	global $wp;
+	
+	switch ( $handle ) {
+		case 'wc-add-to-cart':
+			$params = array(
+				'ajax_url'                => WC()->ajax_url(),
+				'wc_ajax_url'             => WC_AJAX::get_endpoint( '%%endpoint%%' ),
+				'i18n_view_cart'          => esc_attr__( "<i class='fa fa-shopping-cart'></i>", "woocommerce"),
+				'cart_url'                => apply_filters( 'woocommerce_add_to_cart_redirect', wc_get_cart_url(), null ),
+				'is_cart'                 => is_cart(),
+				'cart_redirect_after_add' => get_option( 'woocommerce_cart_redirect_after_add' ),
+			);
+		break;
+		default:
+			$params = false;
+	}
+	return $params;
+}
+
+add_filter( 'woocommerce_loop_add_to_cart_link', 'replace_loop_add_to_cart_button', 10, 2 );
+function replace_loop_add_to_cart_button( $button, $product  ) {
+    // Not needed for variable products
+    if( $product->is_type( 'variable' ) ) return $button;
+
+    // Button text here
+    $button_text = __( "<i class='fa fa-plus-square'></i> &nbsp; Add to cart", "woocommerce" );
+
+    return '<a class="button" href="' . $product->get_permalink() . '">' . $button_text . '</a>';
+}
