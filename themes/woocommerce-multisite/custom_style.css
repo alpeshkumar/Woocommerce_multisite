@@ -118,3 +118,6 @@ Version: 1.0
 .woocommerce .star-rating::before {
 	color: #ffa202;
 }
+li.product:hover .product-info-wrap .price{
+	opacity: 0;
+}
