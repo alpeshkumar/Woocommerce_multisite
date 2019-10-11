@@ -4779,6 +4779,7 @@ li.product .view-detail-wishlist-wrap .yith-wcwl-add-to-wishlist .ajax-loading {
 
 #home-page-widget-area li.product .product-info-wrap {
     background: #fff;
+    margin-top: 10px;
 }
 
 li.product:hover .add-to-cart-wrap,

@@ -115,3 +115,6 @@ Version: 1.0
 .wpb-js-composer .vc_tta.vc_general.ab_product_tab .vc_tta-tab > a {
 	padding: 2px 20px;
 }
+.woocommerce .star-rating::before {
+	color: #ffa202;
+}
