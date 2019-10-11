@@ -436,8 +436,6 @@ function product_rating_html($rating_html, $rating)
 add_action('woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_product_title', 6);
 
 
-
-
 add_filter( 'woocommerce_get_script_data', 'change_view_cart_text_to_icon', 10, 2 );
 function change_view_cart_text_to_icon( $params, $handle ){
 	global $wp;
@@ -460,12 +458,9 @@ function change_view_cart_text_to_icon( $params, $handle ){
 }
 
 add_filter( 'woocommerce_loop_add_to_cart_link', 'replace_loop_add_to_cart_button', 10, 2 );
-function replace_loop_add_to_cart_button( $button, $product  ) {
-    // Not needed for variable products
-    if( $product->is_type( 'variable' ) ) return $button;
+function replace_loop_add_to_cart_button( $button, $product  ) 
+{
+    $button = str_replace("Add to cart", "<i class='fa fa-plus-square'></i> &nbsp; Add to cart", $button);
 
-    // Button text here
-    $button_text = __( "<i class='fa fa-plus-square'></i> &nbsp; Add to cart", "woocommerce" );
-
-    return '<a class="button" href="' . $product->get_permalink() . '">' . $button_text . '</a>';
+    return $button;
 }
