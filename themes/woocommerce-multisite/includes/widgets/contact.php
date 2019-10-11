@@ -66,7 +66,7 @@ if ( ! class_exists( 'eCommerce_Gem_Contact_Widget' ) ) :
 								<?php 
 								if( !empty( $text_one ) ){ ?>
 									<div class="contact-text-wrap">
-									   <p><?php echo esc_html( $text_one ); ?></p>
+									   <p><?php echo $text_one; ?></p>
 									</div> <!-- .contact-text-wrap -->
 									<?php 
 								} ?>
@@ -88,7 +88,7 @@ if ( ! class_exists( 'eCommerce_Gem_Contact_Widget' ) ) :
 								<?php 
 								if( !empty( $text_two ) ){ ?>
 									<div class="contact-text-wrap">
-									   <p><?php echo esc_html( $text_two ); ?></p>
+									   <p><?php echo $text_two; ?></p>
 									</div> <!-- .contact-text-wrap -->
 									<?php 
 								} ?>
@@ -110,7 +110,7 @@ if ( ! class_exists( 'eCommerce_Gem_Contact_Widget' ) ) :
 								<?php 
 								if( !empty( $text_three ) ){ ?>
 									<div class="contact-text-wrap">
-									   <p><?php echo esc_html( $text_three ); ?></p>
+									   <p><?php echo $text_three; ?></p>
 									</div> <!-- .contact-text-wrap -->
 									<?php 
 								} ?>
@@ -156,16 +156,16 @@ if ( ! class_exists( 'eCommerce_Gem_Contact_Widget' ) ) :
 			$instance['title']          = sanitize_text_field( $new_instance['title'] );
 
 			$instance['icon_one'] 		= sanitize_text_field( $new_instance['icon_one'] );
-			$instance['text_one'] 		= sanitize_text_field( $new_instance['text_one'] );
+			$instance['text_one'] 		= $new_instance['text_one'];
 
 			$instance['icon_two'] 		= sanitize_text_field( $new_instance['icon_two'] );
-			$instance['text_two'] 		= sanitize_text_field( $new_instance['text_two'] );
+			$instance['text_two'] 		= $new_instance['text_two'];
 
 			$instance['icon_three'] 	= sanitize_text_field( $new_instance['icon_three'] );
-			$instance['text_three'] 	= sanitize_text_field( $new_instance['text_three'] );
+			$instance['text_three'] 	= $new_instance['text_three'];
 
 			$instance['icon_four'] 		= sanitize_text_field( $new_instance['icon_four'] );
-			$instance['text_four'] 		= sanitize_text_field( $new_instance['text_four'] );
+			$instance['text_four'] 		= $new_instance['text_four'];
 
 			return $instance;
 		}

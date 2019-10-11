@@ -11,11 +11,6 @@ Version: 1.0
 /*
 * Color 
 */
-.top-header a i 
-{
-    color: #108BDE;
-}
-
 
 /*
 * Top Header
@@ -123,4 +118,54 @@ Version: 1.0
 }
 li.product:hover .product-info-wrap .price{
 	opacity: 0;
+}
+/* Shine */
+
+.ab_shine_effect figure {
+	position: relative;
+}
+.ab_shine_effect figure::before {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	z-index: 2;
+	display: block;
+	content: '';
+	width: 0;
+	height: 0;
+	background: rgba(255,255,255,.2);
+	border-radius: 100%;
+	-webkit-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+	opacity: 0;
+}
+.ab_shine_effect figure:hover::before {
+	-webkit-animation: circle .75s;
+	animation: circle .75s;
+}
+@-webkit-keyframes circle {
+	0% {
+		opacity: 1;
+	}
+	40% {
+		opacity: 1;
+	}
+	100% {
+		width: 200%;
+		height: 200%;
+		opacity: 0;
+	}
+}
+@keyframes circle {
+	0% {
+		opacity: 1;
+	}
+	40% {
+		opacity: 1;
+	}
+	100% {
+		width: 200%;
+		height: 200%;
+		opacity: 0;
+	}
 }

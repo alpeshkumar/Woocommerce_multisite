@@ -32,7 +32,7 @@
 
 					<div class="copyright">
 
-						<?php echo wp_kses_data( $copyright_text ); ?>
+						<?php echo $copyright_text; ?>
 
 					</div><!-- .copyright -->
 
