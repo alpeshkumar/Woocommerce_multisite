@@ -461,11 +461,7 @@ function change_view_cart_text_to_icon( $params, $handle ){
 
 add_filter( 'woocommerce_loop_add_to_cart_link', 'replace_loop_add_to_cart_button', 10, 2 );
 function replace_loop_add_to_cart_button( $button, $product  ) {
-    // Not needed for variable products
-    if( $product->is_type( 'variable' ) ) return $button;
+    $button = str_replace("Add to cart", "<i class='fa fa-plus-square'></i> &nbsp; Add to cart", $button);
 
-    // Button text here
-    $button_text = __( "<i class='fa fa-plus-square'></i> &nbsp; Add to cart", "woocommerce" );
-
-    return '<a class="button" href="' . $product->get_permalink() . '">' . $button_text . '</a>';
+    return $button;
 }
