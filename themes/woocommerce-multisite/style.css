@@ -4623,21 +4623,24 @@ li.product .add-to-cart-wrap .added_to_cart {
 .product .woocommerce-loop-product__title,
 .woocommerce ul.products li.product .woocommerce-loop-product__title,
 .ecommerce_gem_widget_featured_categories .product-cat.product .featured-cat-title {
-    color: #0a0b0c;
-    font-size: 20px;
-    font-weight: 500;
+    color: #767676;
+    font-size: 18px;
+    font-weight: 400;
     margin-bottom: 0px;
     padding: 0
 }
 
 .product .price,
 .woocommerce ul.products li.product .price {
-    color: #108BDE;
+    color: #313131;
     display: block;
     width: 100%;
-    font-size: 20px;
-    font-weight: 500;
+    font-size: 18px;
+    font-weight: 400;
     margin-bottom: 15px;
+}
+.woocommerce ul.products li.product .price ins {
+    font-weight: 400;
 }
 
 .product .price del,
@@ -4697,7 +4700,7 @@ li.product .product-thumb-wrap {
 }
 
 li.product .product-thumb-wrap:before {
-    background: #108BDE;
+    background: #303F48;
     content:"";
     position: absolute;
     top:0;
@@ -4708,17 +4711,10 @@ li.product .product-thumb-wrap:before {
 }
 
 li.product .add-to-cart-wrap {
-    transform: translate(-50%, -50%);
-    -moz-transform: translate(-50%, -50%);
-    -webkit-transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    -o-transform: translate(-50%, -50%);
-    position: absolute;
-    bottom: -25%;
-    left: 50%;
     opacity: 0;
     width: 100%;
     text-align: left;
+    position: absolute;
 }
 
 li.product .product-info-wrap {
@@ -4782,13 +4778,18 @@ li.product .view-detail-wishlist-wrap .yith-wcwl-add-to-wishlist .ajax-loading {
     margin-top: 10px;
 }
 
-li.product:hover .add-to-cart-wrap,
 li.product:hover .view-detail-wishlist-wrap {
     opacity: 1;
 }
+li.product:hover .add-to-cart-wrap {
+    opacity: 1;
+    margin-top: -35px;
+    transition: all 0.3s ease-out 0s;
+    -webkit-transition: all 0.3s ease-out 0s;
+}
 
 li.product:hover .product-thumb-wrap:before {
-    opacity: 0.8;
+    opacity: 0.5;
 }
 
 .latest-products-wrapper .latest-product-grid li:nth-child(4n+1) {
