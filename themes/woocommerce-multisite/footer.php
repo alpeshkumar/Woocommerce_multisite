@@ -18,6 +18,8 @@
 
 ?>
 
+	<?php get_template_part( 'template-parts/footer-newsletter' ); ?>
+	
 	<?php get_template_part( 'template-parts/footer-widgets' ); ?>
 
 	<footer id="colophon" class="site-footer" role="contentinfo">

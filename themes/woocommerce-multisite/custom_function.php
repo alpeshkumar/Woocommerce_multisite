@@ -457,10 +457,28 @@ function change_view_cart_text_to_icon( $params, $handle ){
 	return $params;
 }
 
-add_filter( 'woocommerce_loop_add_to_cart_link', 'replace_loop_add_to_cart_button', 10, 2 );
-function replace_loop_add_to_cart_button( $button, $product  ) 
+add_filter( 'woocommerce_product_add_to_cart_text', 'replace_add_to_cart_text', 10, 2 );
+function replace_add_to_cart_text() 
 {
-    $button = str_replace("Add to cart", "<i class='fa fa-plus-square'></i> &nbsp; Add to cart", $button);
-
-    return $button;
+    return __( "<i class='fa fa-plus-square'></i> &nbsp; Add to cart", 'woocommerce' );
 }
+
+register_sidebar(array(
+    'name'          => __('Footer News Letter', 'multisite'),
+    'id'            => 'footer_newsletter',
+    'description'   => __('Footer News Letter widget area', 'multisite'),
+    'before_widget' => '<div id="%1$s" class="%2$s">',
+    'after_widget'  => '</div>',
+    'before_title'  => '<h3 class="widget-title-topbar">',
+    'after_title'   => '</h3>',
+));
+
+register_sidebar(array(
+    'name'          => __('Footer Social Link', 'multisite'),
+    'id'            => 'footer_social_link',
+    'description'   => __('Footer Social Link area', 'multisite'),
+    'before_widget' => '<div id="%1$s" class="%2$s">',
+    'after_widget'  => '</div>',
+    'before_title'  => '<h3 class="widget-title-topbar">',
+    'after_title'   => '</h3>',
+));
