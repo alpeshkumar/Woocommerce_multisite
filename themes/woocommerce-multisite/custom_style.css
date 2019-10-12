@@ -9,15 +9,6 @@ Version: 1.0
 
 
 /*
-* Color 
-*/
-.top-header a i 
-{
-    color: #108BDE;
-}
-
-
-/*
 * Top Header
 */
 .top-header .top-account-wrapper ul#my-account-menu, .top-header .top-account-wrapper ul#my-account-menu ul{margin:0;list-style:none;}
