@@ -108,7 +108,7 @@ Version: 1.0
 #footer-newsletter .footer_newsletter input[type="email"]{width:45%;height: 47px;}
 #footer-newsletter .footer_newsletter input[type="submit"]{border-color:#108BDE;flat:right}
 #footer-newsletter .footer_social_link{width:33.33%;padding-left:2%}
-#footer-newsletter .footer_social_link ul li{display: inline-block;padding: 2px 10px;border: 1px solid #108BDE;margin-top: 2px;}
+#footer-newsletter .footer_social_link ul li{display: inline-block;width: 38px;height: 38px;padding: 4px 12px;border: 1px solid #108BDE;margin-top: 2px;}
 #footer-newsletter .inner-wrapper div h3{font-size: 20px;width:250px;float: left;color:#fff;margin:0}
 #footer-newsletter .inner-wrapper div h3 span.sub_title{font-size:14px;display: inline-block;}
 
