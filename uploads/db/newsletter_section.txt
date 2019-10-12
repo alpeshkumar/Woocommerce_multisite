@@ -1,0 +1,10 @@
+<h3>NEWSLETTER! <span class="sub_title">Lorem Ipsum is simply dummy text</span></h3> <input type="email" name="EMAIL" placeholder="Your Email Address" required /> <input type="submit" value="Subscribe" />
+
+
+
+<h3>NEWSLETTER! <span class="sub_title">Lorem Ipsum is simply dummy text</span></h3> 
+<ul>
+<li><a target="_blank" href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+<li><a target="_blank" href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+<li><a target="_blank" href="#"><i class="fa fa-pinterest-p" aria-hidden="true"></i></a></li>
+</ul>
