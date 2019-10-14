@@ -2,7 +2,7 @@
 /**
  * Custom widgets.
  *
- * @package eCommerce_Gem
+ * @package multisite_Ab
  */
 
 if ( ! class_exists( 'eCommerce_Gem_Contact_Widget' ) ) :

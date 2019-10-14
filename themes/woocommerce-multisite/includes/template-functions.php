@@ -2,7 +2,7 @@
 /**
  * Functions which enhance the theme by hooking into WordPress
  *
- * @package eCommerce_Gem
+ * @package multisite_Ab
  */
 
 /**

@@ -2,7 +2,7 @@
 /**
  * Functions for active_callback.
  *
- * @package eCommerce_Gem
+ * @package multisite_Ab
  */
 
 if ( ! function_exists( 'ecommerce_gem_is_featured_slider_active' ) ) :

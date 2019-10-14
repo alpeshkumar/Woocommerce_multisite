@@ -2,7 +2,7 @@
 /**
  * Breadcrumbs.
  *
- * @package eCommerce_Gem
+ * @package multisite_Ab
  */
 
 // Bail if front page.

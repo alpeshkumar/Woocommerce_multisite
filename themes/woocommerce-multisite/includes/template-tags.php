@@ -4,7 +4,7 @@
  *
  * Eventually, some of the functionality here could be replaced by core features.
  *
- * @package eCommerce_Gem
+ * @package multisite_Ab
  */
 
 if ( ! function_exists( 'ecommerce_gem_posted_on' ) ) :

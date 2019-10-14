@@ -2,7 +2,7 @@
 /**
  * About class
  *
- * @package eCommerce_Gem
+ * @package multisite_Ab
  */
 
 if ( ! class_exists( 'eCommerce_Gem_About' ) ) {

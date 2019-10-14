@@ -4,7 +4,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
- * @package eCommerce_Gem
+ * @package multisite_Ab
  */
 
 ?>

@@ -2,7 +2,7 @@
 /**
  * Footer Options.
  *
- * @package eCommerce_Gem
+ * @package multisite_Ab
  */
 
 // Footer Section.

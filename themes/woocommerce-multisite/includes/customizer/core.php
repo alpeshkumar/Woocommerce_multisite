@@ -2,7 +2,7 @@
 /**
  * Core functions.
  *
- * @package eCommerce_Gem
+ * @package multisite_Ab
  */
 
 if ( ! function_exists( 'ecommerce_gem_get_option' ) ) :

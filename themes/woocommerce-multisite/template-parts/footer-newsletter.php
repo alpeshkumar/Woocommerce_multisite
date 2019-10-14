@@ -2,7 +2,7 @@
 /**
  * Footer widgets.
  *
- * @package eCommerce_Gem
+ * @package multisite_Ab
  */
 
 if ( is_active_sidebar( 'footer_newsletter' ) ||

@@ -2,7 +2,7 @@
 /**
  * Custom Controls of theme
  *
- * @package eCommerce_Gem
+ * @package multisite_Ab
  */
 
 class eCommerce_Gem_Info extends WP_Customize_Control {

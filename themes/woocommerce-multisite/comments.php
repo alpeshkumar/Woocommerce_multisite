@@ -7,7 +7,7 @@
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
- * @package eCommerce_Gem
+ * @package multisite_Ab
  */
 
 /*

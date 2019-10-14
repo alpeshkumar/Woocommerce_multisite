@@ -2,7 +2,7 @@
 /**
  * Load files.
  *
- * @package eCommerce_Gem
+ * @package multisite_Ab
  */
 
 // Remove rating info from featured products.

@@ -2,7 +2,7 @@
 /**
  * Load hooks.
  *
- * @package eCommerce_Gem
+ * @package multisite_Ab
  */
 
 //=============================================================

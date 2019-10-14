@@ -4,7 +4,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/theme-functions/
  *
- * @package eCommerce_Gem
+ * @package multisite_Ab
  */
 
 function chile_theme_enqueue_styles()

@@ -4,7 +4,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/theme-functions/
  *
- * @package eCommerce_Gem
+ * @package multisite_Ab
  */
  
 include_once 'custom_function.php';

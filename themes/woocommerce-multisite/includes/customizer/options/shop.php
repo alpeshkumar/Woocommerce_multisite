@@ -2,7 +2,7 @@
 /**
  * Blog Options.
  *
- * @package eCommerce_Gem
+ * @package multisite_Ab
  */
 
 // Shop Section.

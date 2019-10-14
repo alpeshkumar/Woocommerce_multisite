@@ -4,7 +4,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#search-result
  *
- * @package eCommerce_Gem
+ * @package multisite_Ab
  */
 
 get_header(); ?>

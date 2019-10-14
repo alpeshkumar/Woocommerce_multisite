@@ -93,13 +93,24 @@ Version: 1.0
 * Product List
 */
 #footer-newsletter{background:#333333;position:relative;padding:15px 0;line-height:1}
-#footer-newsletter .outer-wrapper{display: inline-block;width: 100%;border-top:2px dashed #ddd;border-bottom:2px dashed #ddd;padding:40px 0;}
+#footer-newsletter .outer-wrapper{display: inline-block;width: 100%;border-top:1px dashed #eeeeee;border-bottom:1px dashed #eeeeee;padding:25px 0;}
 #footer-newsletter .inner-wrapper > div{float:left;}
 #footer-newsletter .footer_newsletter{width:66.67%;padding-right:1%;border-right: 1px solid #22202e;}
 #footer-newsletter .footer_newsletter input[type="email"]{width:45%;height: 47px;}
-#footer-newsletter .footer_newsletter input[type="submit"]{border-color:#108BDE;flat:right}
+
+#footer-newsletter .footer_newsletter input[type="submit"]{border:0;flat:right;padding: 15px 35px;}
+#footer-newsletter .footer_newsletter input[type="submit"]:hover{
+	background-color: #f93d77;
+}
+
 #footer-newsletter .footer_social_link{width:33.33%;padding-left:2%}
 #footer-newsletter .footer_social_link ul li{display: inline-block;width: 38px;height: 38px;padding: 4px 12px;border: 1px solid #108BDE;margin-top: 2px;}
+#footer-newsletter .footer_social_link ul li:hover{
+	border: 1px solid #f93d77;
+}
+#footer-newsletter .footer_social_link ul li:hover a{
+	color: #f93d77;
+}
 #footer-newsletter .inner-wrapper div h3{font-size: 20px;width:250px;float: left;color:#fff;margin:0}
 #footer-newsletter .inner-wrapper div h3 span.sub_title{font-size:14px;display: inline-block;}
 

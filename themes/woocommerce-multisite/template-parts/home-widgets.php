@@ -2,7 +2,7 @@
 /**
  * Home widgets
  *
- * @package eCommerce_Gem
+ * @package multisite_Ab
  */
 
 // Bail if not home page.

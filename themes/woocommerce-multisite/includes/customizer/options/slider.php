@@ -2,7 +2,7 @@
 /**
  * Slider Options.
  *
- * @package eCommerce_Gem
+ * @package multisite_Ab
  */
 
 // Add Slider Options Panel.

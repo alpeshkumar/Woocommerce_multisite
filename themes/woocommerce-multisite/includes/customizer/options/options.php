@@ -2,7 +2,7 @@
 /**
  * Options.
  *
- * @package eCommerce_Gem
+ * @package multisite_Ab
  */
 
 $default = ecommerce_gem_get_default_theme_options();

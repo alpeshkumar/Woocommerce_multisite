@@ -6,7 +6,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
  *
- * @package eCommerce_Gem
+ * @package multisite_Ab
  */
 
 if ( ! function_exists( 'ecommerce_gem_dynamic_options' ) ) :

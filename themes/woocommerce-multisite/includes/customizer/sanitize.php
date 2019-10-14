@@ -2,7 +2,7 @@
 /**
  * Sanitization functions.
  *
- * @package eCommerce_Gem
+ * @package multisite_Ab
  */
 
 if ( ! function_exists( 'ecommerce_gem_sanitize_select' ) ) :

@@ -2,7 +2,7 @@
 /**
  * Helper functions.
  *
- * @package eCommerce_Gem
+ * @package multisite_Ab
  */
 // Slider status.
 $slider_status = ecommerce_gem_get_option('slider_status');
