@@ -7,13 +7,14 @@
  * @package multisite_Ab
  */
  
+add_action('wp_enqueue_scripts', 'theme_enqueue_styles', 20);
 function theme_enqueue_styles()
 {
     wp_enqueue_style('custom_style', get_template_directory_uri() . '/custom_style.css');
+	wp_enqueue_script('custom_script', get_template_directory_uri() . '/custom_script.js', '', '', true);
 }
 
-add_action('wp_enqueue_scripts', 'theme_enqueue_styles', 20);
-
+add_filter('wp_nav_menu_items', 'add_search_form', 10, 2);
 function add_search_form($items, $args) {
 	
 	/*
@@ -119,12 +120,12 @@ function add_search_form($items, $args) {
 	
     return $items;
 }
-add_filter('wp_nav_menu_items', 'add_search_form', 10, 2);
 
 
 //=============================================================
 // Top header hook of the theme
 //=============================================================
+add_action( 'ecommerce_gem_top_header', 'ecommerce_gem_top_header_action' );
 if ( ! function_exists( 'ecommerce_gem_top_header_action' ) ) :
     /**
      * Header Start.
@@ -366,12 +367,11 @@ if ( ! function_exists( 'ecommerce_gem_top_header_action' ) ) :
     }
 endif;
 
-add_action( 'ecommerce_gem_top_header', 'ecommerce_gem_top_header_action' );
-
 
 //=============================================================
 // Store Information hook of the theme
 //=============================================================
+add_action( 'ecommerce_gem_top_header_store_information', 'ecommerce_gem_top_header_store_information_action' );
 if ( ! function_exists( 'ecommerce_gem_top_header_store_information_action' ) ) :
     /**
      * Store Information Start.
@@ -407,19 +407,17 @@ if ( ! function_exists( 'ecommerce_gem_top_header_store_information_action' ) ) 
     }
 endif;
 
-add_action( 'ecommerce_gem_top_header_store_information', 'ecommerce_gem_top_header_store_information_action' );
 
+add_shortcode('custom_cart', 'custom_cart_callback');
 function custom_cart_callback()
 {
 	ob_start();
 	the_widget( 'WC_Widget_Cart', '' );
 	return ob_get_clean();
 }
-add_shortcode('custom_cart', 'custom_cart_callback');
 
 
 add_filter('woocommerce_product_get_rating_html', 'product_rating_html', 10, 2);
-
 function product_rating_html($rating_html, $rating) 
 {
 	/*
@@ -433,6 +431,9 @@ function product_rating_html($rating_html, $rating)
 	return $rating_html;
 }
 
+/*
+* change title posstion in product list
+*/
 add_action('woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_product_title', 6);
 
 
@@ -440,20 +441,24 @@ add_filter( 'woocommerce_get_script_data', 'change_view_cart_text_to_icon', 10, 
 function change_view_cart_text_to_icon( $params, $handle ){
 	global $wp;
 	
-	switch ( $handle ) {
-		case 'wc-add-to-cart':
-			$params = array(
-				'ajax_url'                => WC()->ajax_url(),
-				'wc_ajax_url'             => WC_AJAX::get_endpoint( '%%endpoint%%' ),
-				'i18n_view_cart'          => esc_attr__( "<i class='fa fa-shopping-cart'></i>", "woocommerce"),
-				'cart_url'                => apply_filters( 'woocommerce_add_to_cart_redirect', wc_get_cart_url(), null ),
-				'is_cart'                 => is_cart(),
-				'cart_redirect_after_add' => get_option( 'woocommerce_cart_redirect_after_add' ),
-			);
-		break;
-		default:
-			$params = false;
+	if(!is_product())
+	{
+		switch ( $handle ) {
+			case 'wc-add-to-cart':
+				$params = array(
+					'ajax_url'                => WC()->ajax_url(),
+					'wc_ajax_url'             => WC_AJAX::get_endpoint( '%%endpoint%%' ),
+					'i18n_view_cart'          => esc_attr__( "<i class='fa fa-shopping-cart'></i>", "woocommerce"),
+					'cart_url'                => apply_filters( 'woocommerce_add_to_cart_redirect', wc_get_cart_url(), null ),
+					'is_cart'                 => is_cart(),
+					'cart_redirect_after_add' => get_option( 'woocommerce_cart_redirect_after_add' ),
+				);
+			break;
+			default:
+				$params = false;
+		}
 	}
+	
 	return $params;
 }
 
@@ -462,6 +467,20 @@ function replace_add_to_cart_text()
 {
     return __( "<i class='fa fa-plus-square'></i> &nbsp; Add to cart", 'woocommerce' );
 }
+
+
+add_action( 'woocommerce_after_shop_loop_item_title', 'add_excerpt_in_product_archives', 40 );
+function add_excerpt_in_product_archives() 
+{     
+	global $product;
+	if ( ! $product->get_short_description() ) return;
+	?>
+	<div itemprop="description" class="short_description">
+		<?php echo apply_filters( 'woocommerce_short_description', $product->get_short_description() ) ?>
+	</div>
+	<?php     
+}
+
 
 register_sidebar(array(
     'name'          => __('Footer News Letter', 'multisite'),
