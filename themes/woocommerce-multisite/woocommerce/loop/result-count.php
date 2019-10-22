@@ -45,7 +45,7 @@ if($product_list_style == '')
 	$product_list_style = 'grid_view';
 }
 ?>
-<p class="woocommerce-result-count woocommerce-result-view">
+<p class="woocommerce-result-view">
 <span class="grid_view <?php echo $product_list_style == 'grid_view' ? 'active' : ''; ?> "> <i class="fa fa-th" aria-hidden="true"></i></span>
 <span class="list_view <?php echo $product_list_style == 'list_view' ? 'active' : ''; ?> "> <i class="fa fa-list" aria-hidden="true"></i></span>
 </p>

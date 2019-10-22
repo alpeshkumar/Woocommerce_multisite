@@ -72,9 +72,7 @@ Version: 1.0
 /*
 * Home Page
 */
-.home #content {
-	padding: 0;
-}
+.home #content {padding: 0;}
 
 
 /*
@@ -83,7 +81,7 @@ Version: 1.0
 .woocommerce ul.products li.product a img{margin:0;}
 .woocommerce ul.products li.product .product-info-wrap {margin-top: 10px;}
 .woocommerce ul.products li.product .short_description{display:none;}
-.woocommerce .woocommerce-result-view{width: 48%;text-align: center;}
+.woocommerce .woocommerce-result-view{width: 48%;text-align: center;float: left;}
 .woocommerce .woocommerce-result-view span{cursor:pointer;}
 .woocommerce .woocommerce-result-view .active{color:#108bde;}
 
@@ -106,6 +104,18 @@ Version: 1.0
 .archive.woocommerce-page ul.products.list_view li.product:hover .add-to-cart-wrap{margin-top:0;}
 .archive.woocommerce-page ul.products.list_view li.product:hover .product-info-wrap .price{opacity:1;}
 
+
+/*
+* Product List Sidebar Style
+*/
+.archive.woocommerce-page #sidebar-primary .widget ul li{padding-left:0;}
+/*.archive.woocommerce-page #sidebar-primary .widget ul li:before{content: "\f105";font: normal normal normal 20px/1 FontAwesome;top: 13px;color: #108bde;} */
+.archive.woocommerce-page #sidebar-primary .widget ul li:before{content: "";}
+.archive.woocommerce-page #sidebar-primary .berocket_single_filter_widget .widget{margin-bottom:0;}
+/* .archive.woocommerce-page #sidebar-primary .berocket_single_filter_widget .brw-price ul li.slider.price > span{display:none;} */
+.archive.woocommerce-page #sidebar-primary .berocket_filter_price_slider{height:0.5em;border-color:#e6e6e6;}
+.archive.woocommerce-page #sidebar-primary .berocket_filter_price_slider.ui-widget-content .ui-slider-range{background-color:#e6e6e6;}
+.archive.woocommerce-page #sidebar-primary .berocket_filter_price_slider.ui-widget-content .ui-slider-handle{top: -6px;height: 20px;width: 10px;}
 
 /*
 * Footer Newsletter
