@@ -528,6 +528,7 @@ ul.berocket_aapf_widget li > span label:hover{
     position: relative;
     top: 40%;
     width: 430px;
+    max-width: 100%;
     height: 200px;
     margin: auto;
     z-index: 10000;

@@ -81,9 +81,7 @@ if ( is_array(berocket_isset($terms)) ) {
             if( $type == 'color' ) {
                 $meta_color = array($meta_color);
             }
-            ?>
-            <li class="berocket_child_parent_sample"><ul>
-            <?php
+            ?><li class="berocket_child_parent_sample"><ul><?php
         }
         $meta_color = apply_filters('berocket_aapf_meta_color_values', $meta_color, $term, $variables_for_hooks);
         $meta_color_init = $meta_color;
@@ -107,10 +105,25 @@ if ( is_array(berocket_isset($terms)) ) {
                 $meta_class = '';
             }
         }
+        $data_jquery_arr = array(
+            'term_slug' => urldecode(berocket_isset($term, 'slug')),
+            'term_name' => ( ! empty($icon_before_value) ? ( ( substr( $icon_before_value, 0, 3) == 'fa-' ) ? '<i class="fa '.$icon_before_value.'"></i>' : '<i class="fa"><img class="berocket_widget_icon" src="'.$icon_before_value.'" alt=""></i>' ) : '' ) . htmlentities(berocket_isset($term, 'name'), ENT_QUOTES) . ( ! empty($icon_after_value) ? ( ( substr( $icon_after_value, 0, 3) == 'fa-' ) ? '<i class="fa '.$icon_after_value.'"></i>' : '<i class="fa"><img class="berocket_widget_icon" src="'.$icon_after_value.'" alt=""></i>' ) : '' ),
+            'filter_type' => berocket_isset($filter_type) ,
+            'term_id' => berocket_isset($term, 'term_id'),
+            'operator' => $operator,
+            'term_ranges' => str_replace ( '*' , '-' , berocket_isset($term, 'term_id')),
+            'taxonomy' => $term_taxonomy_echo,
+            'term_count' => berocket_isset($term, 'count'),
+        );
+        $data_jquery = array();
+        foreach($data_jquery_arr as $data_jquery_name => $data_jquery_string) {
+            if( $data_jquery_string !== '' ) {
+                $data_jquery[] = 'data-'.$data_jquery_name."='".$data_jquery_string."'";
+            }
+        }
+        $data_jquery = implode(' ', $data_jquery);
         list($meta_class, $meta_after, $meta_color) = apply_filters('berocket_widget_color_image_temp_meta_ready', array($meta_class, $meta_after, $meta_color), $term, $meta_color_init, $variables_for_hooks);
-        ?>
-
-        <li class="berocket_term_parent_<?php echo berocket_isset($term, 'parent'); 
+        ?><li class="berocket_term_parent_<?php echo berocket_isset($term, 'parent'); 
             if ( $is_child_parent ) echo ' R__class__R';
             echo " brw-" . preg_replace( "#^(pa)?_#", "", $attribute ) . "-" . preg_replace( "#^(pa)?_#", "", berocket_isset($term, 'slug') );
             if( ! empty($hide_o_value) && berocket_isset($term, 'count') == 0 && ( !$is_child_parent || !$is_first ) ) {
@@ -141,39 +154,27 @@ if ( is_array(berocket_isset($terms)) ) {
             } else {
                 echo ' '.(empty($color_image_checked) ? 'brchecked_default' : $color_image_checked);
             }
-            ?> berocket_checkbox_color<?php echo ( ! empty($use_value_with_color) ? ' berocket_color_with_value' : ' berocket_color_without_value' ) ?>">
-            <span>
-                <input id='checkbox_<?php echo str_replace ( '*' , '-' , berocket_isset($term, 'term_id')), str_replace ( '*' , '-' , $term_taxonomy_echo) ?>_<?php echo berocket_isset($random_name) ?>'
-                       class="<?php echo ( empty($uo['class']['checkbox_radio']) ? '' : $uo['class']['checkbox_radio'] ) ?> checkbox_<?php echo str_replace ( '*' , '-' , berocket_isset($term, 'term_id')), str_replace ( '*' , '-' , $term_taxonomy_echo) ?>" 
-                       type='<?php echo ( ! empty( $disable_multiple ) ? 'radio' : 'checkbox' )?>'
-                       autocomplete="off" 
-                       style="<?php echo ( empty($uo['style']['checkbox_radio']) ? '' : $uo['style']['checkbox_radio'] ) ?>" data-term_slug='<?php echo urldecode(berocket_isset($term, 'slug')) ?>' 
-                       data-term_name='<?php echo ( ! empty($icon_before_value) ? ( ( substr( $icon_before_value, 0, 3) == 'fa-' ) ? '<i class="fa '.$icon_before_value.'"></i>' : '<i class="fa"><img class="berocket_widget_icon" src="'.$icon_before_value.'" alt=""></i>' ) : '' ) . htmlentities(berocket_isset($term, 'name'), ENT_QUOTES) . ( ! empty($icon_after_value) ? ( ( substr( $icon_after_value, 0, 3) == 'fa-' ) ? '<i class="fa '.$icon_after_value.'"></i>' : '<i class="fa"><img class="berocket_widget_icon" src="'.$icon_after_value.'" alt=""></i>' ) : '' )?>' 
-                       data-filter_type='<?php echo berocket_isset($filter_type) ?>' <?php if( ! empty($term->term_id) ) { ?>data-term_id='<?php echo $term->term_id ?>'<?php } ?> data-operator='<?php echo $operator ?>' 
-                       data-term_ranges='<?php echo str_replace ( '*' , '-' , berocket_isset($term, 'term_id')) ?>' 
-                       data-taxonomy='<?php echo $term_taxonomy_echo ?>' 
-                       data-term_count='<?php echo berocket_isset($term, 'count') ?>' 
-                       <?php echo br_is_term_selected( $term, true, $is_child_parent_or, $child_parent_depth ); ?>
-                       <?php echo ( ! empty( $disable_multiple ) ? ' name="radio_' . $term_taxonomy_echo . '_' . $x . '_' . $random_name . '"' : '' )?> />
-                <label data-for='checkbox_<?php echo str_replace ( '*' , '-' , berocket_isset($term, 'term_id')), str_replace ( '*' , '-' , $term_taxonomy_echo) ?>' 
-                    class="berocket_label_widgets<?php if( br_is_term_selected( $term, true, $is_child_parent_or, $child_parent_depth ) != '') echo ' berocket_checked'; ?>">
-                    <?php 
+            ?> berocket_checkbox_color<?php echo ( ! empty($use_value_with_color) ? ' berocket_color_with_value' : ' berocket_color_without_value' );
+            ?>"><span><input id='checkbox_<?php echo str_replace ( '*' , '-' , berocket_isset($term, 'term_id')), str_replace ( '*' , '-' , $term_taxonomy_echo) ?>_<?php echo berocket_isset($random_name);
+                ?>' class="<?php echo ( empty($uo['class']['checkbox_radio']) ? '' : $uo['class']['checkbox_radio'] ) ?> checkbox_<?php echo str_replace ( '*' , '-' , berocket_isset($term, 'term_id')), str_replace ( '*' , '-' , $term_taxonomy_echo);
+                ?>" type='<?php echo ( ! empty( $disable_multiple ) ? 'radio' : 'checkbox' )
+                ?>' autocomplete="off" <?php 
+                echo ( empty($uo['style']['checkbox_radio']) ? '' : 'style="' . $uo['style']['checkbox_radio'] . '"' );
+                echo br_is_term_selected( $term, true, $is_child_parent_or, $child_parent_depth );
+                echo ( ! empty( $disable_multiple ) ? ' name="radio_' . $term_taxonomy_echo . '_' . $x . '_' . $random_name . '"' : '' );
+                echo ' '.$data_jquery;
+                ?>/><label data-for='checkbox_<?php echo str_replace ( '*' , '-' , berocket_isset($term, 'term_id')), str_replace ( '*' , '-' , $term_taxonomy_echo);
+                ?>' class="berocket_label_widgets<?php if( br_is_term_selected( $term, true, $is_child_parent_or, $child_parent_depth ) != '') echo ' berocket_checked'; ?>"><?php 
                     echo apply_filters( 'berocket_check_radio_color_filter_term_text', ( '<span class="'. apply_filters('berocket_widget_color_image_temp_span_class', 'berocket_color_span_block', array($meta_class, $meta_after, $meta_color), $term) . '"
                     style="' . $meta_color . '">' . $meta_class . '</span>' .
                     ( ! empty($use_value_with_color) ? '<span class="berocket_color_text">' . ( ! empty($icon_before_value) ? ( ( substr( $icon_before_value, 0, 3) == 'fa-' ) ? '<i class="fa '.$icon_before_value.'"></i>' : '<i class="fa"><img class="berocket_widget_icon" src="'.$icon_before_value.'" alt=""></i>' ) : '' ) . $term->name . ( ! empty($icon_after_value) ? ( ( substr( $icon_after_value, 0, 3) == 'fa-' ) ? '<i class="fa '.$icon_after_value.'"></i>' : '<i class="fa"><img class="berocket_widget_icon" src="'.$icon_after_value.'" alt=""></i>' ) : '' ) . '</span>' : '' ) .
                     berocket_isset($meta_after) ), $term, $operator, FALSE );
-                    ?>
-                </label>
-            </span>
-        </li>
-        <?php
+                ?></label></span></li><?php
         if ( $is_child_parent && $is_first ) {
-            ?>
-            </ul></li>
-            <?php
+            ?></ul></li><?php
         }
-    } ?>
-    <?php if( $is_child_parent && is_array(berocket_isset($terms)) && count($terms) == 1 ) {
+    }
+    if( $is_child_parent && is_array(berocket_isset($terms)) && count($terms) == 1 ) {
         if( BeRocket_AAPF_Widget::is_parent_selected($attribute, $child_parent_depth - 1) ) {
             echo '<li>'.$child_parent_no_values.'</li>';
         } else {
@@ -182,8 +183,7 @@ if ( is_array(berocket_isset($terms)) ) {
     } else {
         if( $child_parent_no_values ) {
             if ( ! $child_parent_depth ) $child_parent_depth = '0';
-            ?>
-            <script>
+            ?><script>
             if ( typeof(child_parent_depth) == 'undefined' || child_parent_depth < <?php echo $child_parent_depth; ?> ) {
                 child_parent_depth = <?php echo $child_parent_depth; ?>;
             }
@@ -192,8 +192,7 @@ if ( is_array(berocket_isset($terms)) ) {
                     jQuery('.woocommerce-info').text('<?php echo $child_parent_no_values; ?>');
                 }
             });
-            </script>
-            <?php
+            </script><?php
         }
     }
     if( ! empty($attribute_count_show_hide) ) {
@@ -203,7 +202,7 @@ if ( is_array(berocket_isset($terms)) ) {
             $hide_button_value = false;
         }
     }
-    if( empty($hide_button_value) ) { ?>
-        <li class="berocket_widget_show_values"<?php if( !$hiden_value ) echo 'style="display: none;"' ?>><?php _e('Show value(s)', 'BeRocket_AJAX_domain') ?><span class="show_button"></span></li>
-    <div style="clear: both;"></div>
-<?php } }
+    if( empty($hide_button_value) ) { 
+        ?><li class="berocket_widget_show_values"<?php if( !$hiden_value ) echo 'style="display: none;"' ?>><?php _e('Show value(s)', 'BeRocket_AJAX_domain') ?><span class="show_button"></span></li>
+    <div style="clear: both;"></div><?php 
+} }

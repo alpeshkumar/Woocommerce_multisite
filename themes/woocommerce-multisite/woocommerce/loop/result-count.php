@@ -21,6 +21,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 ?>
+<div class="ab_result_rating">
 <p class="woocommerce-result-count">
 	<?php
 	if ( 1 === $total ) {

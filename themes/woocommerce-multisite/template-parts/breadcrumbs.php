@@ -42,3 +42,7 @@ if ( ! function_exists( 'ecommerce_gem_breadcrumb_trail' ) ) {
 		?>
 	</div><!-- .container -->
 </div><!-- #breadcrumb -->
+<?php
+if(is_shop() || is_product_category()){
+	dynamic_sidebar( 'shop-category-banner' );
+}

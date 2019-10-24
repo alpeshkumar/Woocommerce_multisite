@@ -251,11 +251,6 @@ function ecommerce_gem_register_required_plugins() {
 			'required'  => false,
 		),
 		array(
-			'name'     => esc_html__( 'One Click Demo Import', 'woocommerce-multisite' ),
-			'slug'     => 'one-click-demo-import',
-			'required' => false,
-		),
-		array(
 			'name'     => esc_html__( 'MailChimp for WordPress', 'woocommerce-multisite' ),
 			'slug'     => 'mailchimp-for-wp',
 			'required' => false,
@@ -269,12 +264,7 @@ function ecommerce_gem_register_required_plugins() {
 			'name'     => esc_html__( 'YITH WooCommerce Wishlist', 'woocommerce-multisite' ),
 			'slug'     => 'yith-woocommerce-wishlist',
 			'required' => false,
-		),
-		array(
-			'name'     => esc_html__( 'Video Tab For WooCommerce', 'woocommerce-multisite' ),
-			'slug'     => 'video-tab-for-woocommerce',
-			'required' => false,
-		),
+		),		
 	);
 
 	tgmpa( $plugins );

@@ -1,8 +1,8 @@
 <?php
 /**
- * The template for displaying checkbox filters
+ * The template for displaying select filters
  *
- * Override this template by copying it to yourtheme/woocommerce-filters/checkbox.php
+ * Override this template by copying it to yourtheme/woocommerce-ajax_filters/select.php
  *
  * @author     BeRocket
  * @package     WooCommerce-Filters/Templates
@@ -74,39 +74,37 @@ $term_taxonomy_echo = berocket_isset($terms[0], 'wpml_taxonomy');
 if( empty($term_taxonomy_echo) ) {
     $term_taxonomy_echo = berocket_isset($terms[0], 'taxonomy');
 }
-?>
-<li>
-    <span>
-        <select<?php if( ! empty($select_multiple) ) echo ' multiple="multiple" data-placeholder="'.$select_first_element_text.'"'?> id='checkbox_<?php echo berocket_isset($terms[0], 'term_id') ?>_<?php echo berocket_isset($random_name) ?>' autocomplete="off"
-                class="<?php echo br_get_value_from_array($uo, array('class', 'selectbox')) ?> <?php echo $term_taxonomy_echo ?>"
-                data-taxonomy='<?php echo $term_taxonomy_echo ?>'>
-            <?php if( empty($select_multiple) ) { ?>
-            <option class="<?php echo "brw-" . preg_replace( "#^(pa)?_#", "", $attribute ) . "-" . ((berocket_isset($term, 'slug')) ? preg_replace( "#^(pa)?_#", "", berocket_isset($term, 'slug') ) : 'default' ) ?>" data-taxonomy='<?php echo $term_taxonomy_echo ?>' value=''><?php echo $select_first_element_text; ?></option>
-            <?php } foreach ( $terms as $term ): 
-            $term_taxonomy_echo = berocket_isset($term, 'wpml_taxonomy');
-            if( empty($term_taxonomy_echo) ) {
-                $term_taxonomy_echo = berocket_isset($term, 'taxonomy');
+?><li><span><select<?php if( ! empty($select_multiple) ) echo ' multiple="multiple" data-placeholder="'.$select_first_element_text.'"'?> id='checkbox_<?php echo berocket_isset($terms[0], 'term_id') ?>_<?php echo berocket_isset($random_name);
+    ?>' autocomplete="off" class="<?php echo br_get_value_from_array($uo, array('class', 'selectbox')) ?> <?php echo $term_taxonomy_echo;
+    ?>" data-taxonomy='<?php echo $term_taxonomy_echo ?>'><?php
+        if( empty($select_multiple) ) { 
+            ?><option class="<?php echo "brw-" . preg_replace( "#^(pa)?_#", "", $attribute ) . "-" . ((berocket_isset($term, 'slug')) ? preg_replace( "#^(pa)?_#", "", berocket_isset($term, 'slug') ) : 'default' ) ?>" data-taxonomy='<?php echo $term_taxonomy_echo ?>' value=''><?php echo $select_first_element_text; ?></option><?php 
+        } foreach ( $terms as $term ): 
+        $term_taxonomy_echo = berocket_isset($term, 'wpml_taxonomy');
+        if( empty($term_taxonomy_echo) ) {
+            $term_taxonomy_echo = berocket_isset($term, 'taxonomy');
+        }
+        $parent_count = 0;
+        if(isset($term->parent) && $term->parent != 0) {
+            $parent_count = get_ancestors( $term->term_id, $term->taxonomy );
+            $parent_count = count($parent_count);
+        } elseif( isset($term->depth) ) {
+            $parent_count = $term->depth;
+        }
+        ?><option value='<?php echo berocket_isset($term, 'term_id') ?>' data-term_id='<?php echo berocket_isset($term, 'term_id');
+            ?>' data-taxonomy='<?php echo $term_taxonomy_echo ?>' data-term_count='<?php echo berocket_isset($term, 'count');
+            ?>' data-term_slug='<?php echo urldecode(berocket_isset($term, 'slug')) ?>' data-filter_type='<?php echo berocket_isset($filter_type);
+            ?>' data-term_name='<?php echo berocket_isset($term, 'name') ?>' class="select_<?php echo berocket_isset($term, 'term_id'); 
+            if( ! $is_child_parent_or && ! empty($hide_o_value) && berocket_isset($term, 'count') == 0 ) {
+                echo ' berocket_hide_o_value'; 
+                $hiden_value = true; 
             }
-            $parent_count = 0;
-            if(isset($term->parent) && $term->parent != 0) {
-                $parent_count = get_ancestors( $term->term_id, $term->taxonomy );
-                $parent_count = count($parent_count);
-            } elseif( isset($term->depth) ) {
-                $parent_count = $term->depth;
-            }
-            ?>
-                <option value='<?php echo berocket_isset($term, 'term_id') ?>' data-term_id='<?php echo berocket_isset($term, 'term_id') ?>'
-                        data-taxonomy='<?php echo $term_taxonomy_echo ?>'
-                        data-term_count='<?php echo berocket_isset($term, 'count') ?>' 
-                        data-term_slug='<?php echo urldecode(berocket_isset($term, 'slug')) ?>' data-filter_type='<?php echo berocket_isset($filter_type) ?>'
-                        data-term_name='<?php echo berocket_isset($term, 'name') ?>'
-                        class="select_<?php echo berocket_isset($term, 'term_id') ?><?php if( ! $is_child_parent_or && ! empty($hide_o_value) && berocket_isset($term, 'count') == 0 ) { echo ' berocket_hide_o_value'; $hiden_value = true; } ?> <?php echo "brw-" . preg_replace( "#^(pa)?_#", "", $attribute ) . "-" . preg_replace( "#^(pa)?_#", "", berocket_isset($term, 'slug') ) ?>"
-                        data-operator='<?php echo berocket_isset($operator) ?>'
-                        <?php if( ! $is_child_parent_or && ! empty($hide_o_value) && berocket_isset($term, 'count') == 0 ) { echo ' hidden disabled'; $hiden_value = true; } ?>
-                    <?php echo br_is_term_selected( $term, false, $is_child_parent_or, $child_parent_depth ); ?>
-                    ><?php for($i=0;$i<$parent_count;$i++){echo apply_filters('berocket_aapf_select_term_child_prefix', '-&nbsp;');}echo apply_filters('berocket_select_filter_term_name', berocket_isset($term, 'name'), $term) ?></option>
-            <?php endforeach; ?>
-        </select>
-    </span>
-</li>
-<?php } ?>
+            echo " brw-" . preg_replace( "#^(pa)?_#", "", $attribute ) . "-" . preg_replace( "#^(pa)?_#", "", berocket_isset($term, 'slug') ) 
+            ?>" data-operator='<?php echo berocket_isset($operator) ?>'<?php 
+            if( ! $is_child_parent_or && ! empty($hide_o_value) && berocket_isset($term, 'count') == 0 ) {
+                echo ' hidden disabled'; $hiden_value = true; 
+            } echo ' ' . br_is_term_selected( $term, false, $is_child_parent_or, $child_parent_depth ); 
+            ?>><?php for($i=0;$i<$parent_count;$i++){echo apply_filters('berocket_aapf_select_term_child_prefix', '-&nbsp;');}echo apply_filters('berocket_select_filter_term_name', berocket_isset($term, 'name'), $term) ?></option><?php
+        endforeach; 
+?></select></span></li><?php 
+}

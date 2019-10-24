@@ -50,6 +50,10 @@
 		if( main_body_ref.hasClass( 'global-sticky-sidebar' ) ){
 			$( '#primary, #sidebar-primary' ).theiaStickySidebar();
 		}
+		$("ul.products li.product .product-thumb-wrap").click(function() {
+			window.location = $(this).next().find("a").attr("href");
+			return false;
+		});
 
 	});
 

@@ -22,8 +22,7 @@ Version: 1.0
     -webkit-transform: translate(0%, -50%);
     -ms-transform: translate(0%, -50%);
     -o-transform: translate(0%, -50%);
-    position: absolute;
-    top: 25px;}
+    }
 .top-header .top-account-wrapper ul#my-account-menu li ul.sub-menu{
 	opacity:0;
 	background: #333;
@@ -89,7 +88,6 @@ Version: 1.0
 /*
 * Product List View style
 */
-.archive.woocommerce-page ul.products li.product .star-rating{display:none;}
 
 .archive.woocommerce-page.columns-3 ul.products.list_view li.product, 
 .archive.woocommerce.columns-3 ul.products.list_view li.product{width:100%;margin-right:0;margin-bottom:30px}
@@ -100,7 +98,6 @@ Version: 1.0
 .archive.woocommerce-page ul.products.list_view li.product .short_description p{font-size:14px;}
 .archive.woocommerce-page ul.products.list_view li.product .price{margin-bottom:5px;}
 .archive.woocommerce-page ul.products.list_view li.product .add-to-cart-wrap{opacity:1;position: relative;}
-.archive.woocommerce-page ul.products.list_view li.product .onsale{top: 17px !important;left: -9px !important;}
 .archive.woocommerce-page ul.products.list_view li.product:hover .add-to-cart-wrap{margin-top:0;}
 .archive.woocommerce-page ul.products.list_view li.product:hover .product-info-wrap .price{opacity:1;}
 
@@ -117,22 +114,6 @@ Version: 1.0
 .archive.woocommerce-page #sidebar-primary .berocket_filter_price_slider.ui-widget-content .ui-slider-range{background-color:#e6e6e6;}
 .archive.woocommerce-page #sidebar-primary .berocket_filter_price_slider.ui-widget-content .ui-slider-handle{top: -6px;height: 20px;width: 10px;}
 
-/*
-* Footer Newsletter
-*/
-#footer-newsletter{background:#333333;position:relative;padding:15px 0;line-height:1}
-#footer-newsletter .outer-wrapper{display: inline-block;width: 100%;border-top:1px dashed #eeeeee;border-bottom:1px dashed #eeeeee;padding:25px 0;}
-#footer-newsletter .inner-wrapper > div{float:left;}
-#footer-newsletter .footer_newsletter{width:66.67%;padding-right:1%;border-right: 1px solid #22202e;}
-#footer-newsletter .footer_newsletter input[type="email"]{width:45%;height: 47px;}
-#footer-newsletter .footer_newsletter input[type="submit"]{border:0;flat:right;padding: 15px 35px;}
-#footer-newsletter .footer_newsletter input[type="submit"]:hover{background-color: #f93d77;}
-#footer-newsletter .footer_social_link{width:33.33%;padding-left:2%}
-#footer-newsletter .footer_social_link ul li{display: inline-block;width: 38px;height: 38px;padding: 4px 12px;border: 1px solid #108BDE;margin-top: 2px;}
-#footer-newsletter .footer_social_link ul li:hover{border: 1px solid #f93d77;}
-#footer-newsletter .footer_social_link ul li:hover a{color: #f93d77;}
-#footer-newsletter .inner-wrapper div h3{font-size: 20px;width:250px;float: left;color:#fff;margin:0}
-#footer-newsletter .inner-wrapper div h3 span.sub_title{font-size:14px;display: inline-block;}
 
 
 
@@ -160,6 +141,10 @@ Version: 1.0
 }
 li.product:hover .product-info-wrap .price{
 	opacity: 0;
+}
+.tax-product_cat.woocommerce span.onsale,
+.post-type-archive-product.woocommerce span.onsale {
+	width: 61px;
 }
 /* Shine */
 
@@ -210,4 +195,18 @@ li.product:hover .product-info-wrap .price{
 		height: 200%;
 		opacity: 0;
 	}
+}
+.ab_result_rating {
+	border: 1px solid #CCC;
+	display: inline-block;
+	width: 100%;
+	position: relative;
+	padding: 10px;
+}
+.woocommerce .ab_result_rating p, .woocommerce .ab_result_rating form {
+	margin-bottom: 0;
+	font-size: 16px;
+}
+#sidebar-primary .widget ul li input{
+    margin-right: 5px;
 }
