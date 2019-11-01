@@ -83,12 +83,11 @@ Version: 1.0
 .woocommerce .woocommerce-result-view{width: 48%;text-align: center;float: left;}
 .woocommerce .woocommerce-result-view span{cursor:pointer;}
 .woocommerce .woocommerce-result-view .active{color:#108bde;}
-
+.archive.woocommerce-page ul.products{width:100%;}
 
 /*
 * Product List View style
 */
-
 .archive.woocommerce-page.columns-3 ul.products.list_view li.product, 
 .archive.woocommerce.columns-3 ul.products.list_view li.product{width:100%;margin-right:0;margin-bottom:30px}
 .archive.woocommerce-page ul.products.list_view li.product .product-thumb-wrap{width:30%;float: left;margin-bottom:30px}
