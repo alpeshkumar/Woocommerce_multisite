@@ -12,6 +12,16 @@ function theme_enqueue_styles()
 {
     wp_enqueue_style('custom_style', get_template_directory_uri() . '/custom_style.css');
 	wp_enqueue_script('custom_script', get_template_directory_uri() . '/custom_script.js', '', '', true);
+	
+	/*
+	* added below for all pages 
+	*/
+	if ( is_plugin_active( 'js_composer/js_composer.php' ) ) 
+	{
+		wp_enqueue_script( 'wpb_composer_front_js' );
+		wp_enqueue_style( 'js_composer_front' );
+		wp_enqueue_style( 'js_composer_custom_css' );
+	}
 }
 
 add_filter('wp_nav_menu_items', 'add_search_form', 10, 2);
