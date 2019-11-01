@@ -1,6 +1,6 @@
 jQuery(document).ready(function ($)
 {
-	$('.woocommerce .woocommerce-result-view span').click(function ()
+	$('body').on('click', '.woocommerce .woocommerce-result-view span', function ()
     {
 		$('.woocommerce .woocommerce-result-view span').removeClass('active');
 		
@@ -20,6 +20,11 @@ jQuery(document).ready(function ($)
 			
 			Cookies.set("product_list_style","list_view");
 		}
+	});
+	
+	$('body').on('click', 'ul.products li.product .product-thumb-wrap', function ()
+		window.location = $(this).next().find("a").attr("href");
+		return false;
 	});
 
 });
