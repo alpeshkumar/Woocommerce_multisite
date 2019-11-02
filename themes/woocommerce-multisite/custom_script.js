@@ -23,6 +23,7 @@ jQuery(document).ready(function ($)
 	});
 	
 	$('body').on('click', 'ul.products li.product .product-thumb-wrap', function ()
+	{
 		window.location = $(this).next().find("a").attr("href");
 		return false;
 	});
