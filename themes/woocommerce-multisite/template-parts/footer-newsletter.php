@@ -13,10 +13,10 @@ if ( is_active_sidebar( 'footer_newsletter' ) ||
 		<div class="outer-wrapper">
 			<div class="container">
 				<div class="inner-wrapper">
-					<div class="footer_newsletter col-md-8">
+					<div class="footer_newsletter vc_col-md-8">
 						<?php dynamic_sidebar( 'footer_newsletter' ); ?>
 					</div>
-					<div class="footer_social_link col-md-4">
+					<div class="footer_social_link vc_col-md-4">
 						<?php dynamic_sidebar( 'footer_social_link' ); ?>
 					</div>
 				</div><!-- .inner-wrapper -->

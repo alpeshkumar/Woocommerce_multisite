@@ -5214,9 +5214,19 @@ li.product .view-detail-wishlist-wrap {
 /*
 * Footer Newsletter
 */
-
+#footer-newsletter .col-md-8{
+    width: 66.66%;
+    padding-left:15px;
+    padding-right:15px;
+}
+#footer-newsletter .col-md-4{
+    width: 33.34%;
+    padding-left:15px;
+    padding-right:15px;
+}
 #footer-newsletter{background:#333333;position:relative;padding:15px 0;line-height:1}
 #footer-newsletter .outer-wrapper{display: inline-block;width: 100%;border-top:1px dashed #eeeeee;border-bottom:1px dashed #eeeeee;padding:25px 0;}
+#footer-newsletter .inner-wrapper > div{float:left;}
 #footer-newsletter .footer_newsletter{border-right: 1px solid #22202e;}
 #footer-newsletter .footer_newsletter input[type="email"]{width:45%;height: 47px;}
 #footer-newsletter .footer_newsletter input[type="submit"]{border:0;padding: 15px 35px; position: relative; top:1px;}
@@ -5968,7 +5978,12 @@ li.product .view-detail-wishlist-wrap {
     #footer-newsletter .footer_newsletter input[type="email"] {
         width: 33%;
     }
-    
+    #footer-newsletter .col-md-8{
+        width: 100%;        
+    }
+    #footer-newsletter .col-md-4{
+        width: 100%;
+    }
     .footer_social_link {
         margin-top: 25px;
     }
@@ -6010,7 +6025,12 @@ li.product .view-detail-wishlist-wrap {
         width: 60%;
         height: 47px;
     }
-    
+    #footer-newsletter .col-md-8{
+        width: 100%;        
+    }
+    #footer-newsletter .col-md-4{
+        width: 100%;
+    }
     #footer-newsletter .footer_social_link ul{
         clear:both;
     }
