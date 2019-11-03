@@ -452,8 +452,96 @@ function change_view_cart_text_to_icon( $params, $handle ){
 	global $wp;
 	
 	if(!is_product())
-	{
+	{		
 		switch ( $handle ) {
+			case 'woocommerce':
+				$params = array(
+					'ajax_url'    => WC()->ajax_url(),
+					'wc_ajax_url' => WC_AJAX::get_endpoint( '%%endpoint%%' ),
+				);
+				break;
+			case 'wc-geolocation':
+				$params = array(
+					'wc_ajax_url'  => WC_AJAX::get_endpoint( '%%endpoint%%' ),
+					'home_url'     => home_url(),
+					'is_available' => ! ( is_cart() || is_account_page() || is_checkout() || is_customize_preview() ) ? '1' : '0',
+					'hash'         => isset( $_GET['v'] ) ? wc_clean( wp_unslash( $_GET['v'] ) ) : '', // WPCS: input var ok, CSRF ok.
+				);
+				break;
+			case 'wc-single-product':
+				$params = array(
+					'i18n_required_rating_text' => esc_attr__( 'Please select a rating', 'woocommerce' ),
+					'review_rating_required'    => wc_review_ratings_required() ? 'yes' : 'no',
+					'flexslider'                => apply_filters(
+						'woocommerce_single_product_carousel_options',
+						array(
+							'rtl'            => is_rtl(),
+							'animation'      => 'slide',
+							'smoothHeight'   => true,
+							'directionNav'   => false,
+							'controlNav'     => 'thumbnails',
+							'slideshow'      => false,
+							'animationSpeed' => 500,
+							'animationLoop'  => false, // Breaks photoswipe pagination if true.
+							'allowOneSlide'  => false,
+						)
+					),
+					'zoom_enabled'              => apply_filters( 'woocommerce_single_product_zoom_enabled', get_theme_support( 'wc-product-gallery-zoom' ) ),
+					'zoom_options'              => apply_filters( 'woocommerce_single_product_zoom_options', array() ),
+					'photoswipe_enabled'        => apply_filters( 'woocommerce_single_product_photoswipe_enabled', get_theme_support( 'wc-product-gallery-lightbox' ) ),
+					'photoswipe_options'        => apply_filters(
+						'woocommerce_single_product_photoswipe_options',
+						array(
+							'shareEl'               => false,
+							'closeOnScroll'         => false,
+							'history'               => false,
+							'hideAnimationDuration' => 0,
+							'showAnimationDuration' => 0,
+						)
+					),
+					'flexslider_enabled'        => apply_filters( 'woocommerce_single_product_flexslider_enabled', get_theme_support( 'wc-product-gallery-slider' ) ),
+				);
+				break;
+			case 'wc-checkout':
+				$params = array(
+					'ajax_url'                  => WC()->ajax_url(),
+					'wc_ajax_url'               => WC_AJAX::get_endpoint( '%%endpoint%%' ),
+					'update_order_review_nonce' => wp_create_nonce( 'update-order-review' ),
+					'apply_coupon_nonce'        => wp_create_nonce( 'apply-coupon' ),
+					'remove_coupon_nonce'       => wp_create_nonce( 'remove-coupon' ),
+					'option_guest_checkout'     => get_option( 'woocommerce_enable_guest_checkout' ),
+					'checkout_url'              => WC_AJAX::get_endpoint( 'checkout' ),
+					'is_checkout'               => is_checkout() && empty( $wp->query_vars['order-pay'] ) && ! isset( $wp->query_vars['order-received'] ) ? 1 : 0,
+					'debug_mode'                => defined( 'WP_DEBUG' ) && WP_DEBUG,
+					'i18n_checkout_error'       => esc_attr__( 'Error processing checkout. Please try again.', 'woocommerce' ),
+				);
+				break;
+			case 'wc-address-i18n':
+				$params = array(
+					'locale'             => wp_json_encode( WC()->countries->get_country_locale() ),
+					'locale_fields'      => wp_json_encode( WC()->countries->get_country_locale_field_selectors() ),
+					'i18n_required_text' => esc_attr__( 'required', 'woocommerce' ),
+					'i18n_optional_text' => esc_html__( 'optional', 'woocommerce' ),
+				);
+				break;
+			case 'wc-cart':
+				$params = array(
+					'ajax_url'                     => WC()->ajax_url(),
+					'wc_ajax_url'                  => WC_AJAX::get_endpoint( '%%endpoint%%' ),
+					'update_shipping_method_nonce' => wp_create_nonce( 'update-shipping-method' ),
+					'apply_coupon_nonce'           => wp_create_nonce( 'apply-coupon' ),
+					'remove_coupon_nonce'          => wp_create_nonce( 'remove-coupon' ),
+				);
+				break;
+			case 'wc-cart-fragments':
+				$params = array(
+					'ajax_url'        => WC()->ajax_url(),
+					'wc_ajax_url'     => WC_AJAX::get_endpoint( '%%endpoint%%' ),
+					'cart_hash_key'   => apply_filters( 'woocommerce_cart_hash_key', 'wc_cart_hash_' . md5( get_current_blog_id() . '_' . get_site_url( get_current_blog_id(), '/' ) . get_template() ) ),
+					'fragment_name'   => apply_filters( 'woocommerce_cart_fragment_name', 'wc_fragments_' . md5( get_current_blog_id() . '_' . get_site_url( get_current_blog_id(), '/' ) . get_template() ) ),
+					'request_timeout' => 5000,
+				);
+				break;
 			case 'wc-add-to-cart':
 				$params = array(
 					'ajax_url'                => WC()->ajax_url(),
@@ -463,7 +551,42 @@ function change_view_cart_text_to_icon( $params, $handle ){
 					'is_cart'                 => is_cart(),
 					'cart_redirect_after_add' => get_option( 'woocommerce_cart_redirect_after_add' ),
 				);
-			break;
+				break;
+			case 'wc-add-to-cart-variation':
+				// We also need the wp.template for this script :).
+				wc_get_template( 'single-product/add-to-cart/variation.php' );
+
+				$params = array(
+					'wc_ajax_url'                      => WC_AJAX::get_endpoint( '%%endpoint%%' ),
+					'i18n_no_matching_variations_text' => esc_attr__( 'Sorry, no products matched your selection. Please choose a different combination.', 'woocommerce' ),
+					'i18n_make_a_selection_text'       => esc_attr__( 'Please select some product options before adding this product to your cart.', 'woocommerce' ),
+					'i18n_unavailable_text'            => esc_attr__( 'Sorry, this product is unavailable. Please choose a different combination.', 'woocommerce' ),
+				);
+				break;
+			case 'wc-country-select':
+				$params = array(
+					'countries'                 => wp_json_encode( array_merge( WC()->countries->get_allowed_country_states(), WC()->countries->get_shipping_country_states() ) ),
+					'i18n_select_state_text'    => esc_attr__( 'Select an option&hellip;', 'woocommerce' ),
+					'i18n_no_matches'           => _x( 'No matches found', 'enhanced select', 'woocommerce' ),
+					'i18n_ajax_error'           => _x( 'Loading failed', 'enhanced select', 'woocommerce' ),
+					'i18n_input_too_short_1'    => _x( 'Please enter 1 or more characters', 'enhanced select', 'woocommerce' ),
+					'i18n_input_too_short_n'    => _x( 'Please enter %qty% or more characters', 'enhanced select', 'woocommerce' ),
+					'i18n_input_too_long_1'     => _x( 'Please delete 1 character', 'enhanced select', 'woocommerce' ),
+					'i18n_input_too_long_n'     => _x( 'Please delete %qty% characters', 'enhanced select', 'woocommerce' ),
+					'i18n_selection_too_long_1' => _x( 'You can only select 1 item', 'enhanced select', 'woocommerce' ),
+					'i18n_selection_too_long_n' => _x( 'You can only select %qty% items', 'enhanced select', 'woocommerce' ),
+					'i18n_load_more'            => _x( 'Loading more results&hellip;', 'enhanced select', 'woocommerce' ),
+					'i18n_searching'            => _x( 'Searching&hellip;', 'enhanced select', 'woocommerce' ),
+				);
+				break;
+			case 'wc-password-strength-meter':
+				$params = array(
+					'min_password_strength' => apply_filters( 'woocommerce_min_password_strength', 3 ),
+					'stop_checkout'         => apply_filters( 'woocommerce_enforce_password_strength_meter_on_checkout', false ),
+					'i18n_password_error'   => esc_attr__( 'Please enter a stronger password.', 'woocommerce' ),
+					'i18n_password_hint'    => esc_attr( wp_get_password_hint() ),
+				);
+				break;
 			default:
 				$params = false;
 		}
