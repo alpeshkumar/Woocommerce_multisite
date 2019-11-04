@@ -230,7 +230,14 @@ li.product:hover .product-info-wrap .price{
     margin-right: 5px;
 }
 
-
+#sidebar-primary .widget h4 {
+    font-size: 18px;
+	text-transform: uppercase;
+	font-weight: normal;
+}
+.widget_media_image{
+	text-align: center;
+}
 
 @media only screen and (min-width: 768px) 
 {
