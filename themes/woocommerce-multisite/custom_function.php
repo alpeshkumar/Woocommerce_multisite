@@ -602,7 +602,7 @@ function replace_add_to_cart_text()
 }
 
 
-add_action( 'woocommerce_after_shop_loop_item_title', 'add_excerpt_in_product_archives', 40 );
+add_action( 'woocommerce_after_shop_loop_item_title', 'add_excerpt_in_product_archives', 7 );
 function add_excerpt_in_product_archives() 
 {     
 	global $product;
