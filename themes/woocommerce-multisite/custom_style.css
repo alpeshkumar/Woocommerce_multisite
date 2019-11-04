@@ -85,6 +85,7 @@ Version: 1.0
 .woocommerce .woocommerce-result-view .active{color:#108bde;}
 .archive.woocommerce-page ul.products{width:100%;}
 
+
 /*
 * Product List View style
 */
@@ -124,6 +125,14 @@ Version: 1.0
 .archive.woocommerce-page #sidebar-primary .berocket_filter_price_slider.ui-widget-content .ui-slider-range{background-color:#e6e6e6;}
 .archive.woocommerce-page #sidebar-primary .berocket_filter_price_slider.ui-widget-content .ui-slider-handle{top: -6px;height: 20px;width: 10px;}
 
+
+/*
+* Single Product
+*/
+.single-product.woocommerce .product > span.onsale {top: 18px !important;left: -15px !important;padding: 0 54px 0 10px}
+.single-product.woocommerce .product .related.products span.onsale {top: 24px !important;left: -15px !important;padding: 0 54px 0 10px}
+.single-product.woocommerce .product .woocommerce-tabs .woocommerce-Tabs-panel--additional_information table.woocommerce-product-attributes td{padding-left:8px;}
+.single-product.woocommerce .product .woocommerce-tabs .woocommerce-Tabs-panel--reviews form.comment-form input#wp-comment-cookies-consent{margin-right:5px;}
 
 
 
@@ -220,11 +229,10 @@ li.product:hover .product-info-wrap .price{
 #sidebar-primary .widget ul li input{
     margin-right: 5px;
 }
-#sidebar-primary .widget h4 {
-    font-size: 18px;
-	text-transform: uppercase;
-	font-weight: normal;
-}
-.widget_media_image{
-	text-align: center;
+
+
+
+@media only screen and (min-width: 768px) 
+{
+	.home .home_load_more_button {margin-top: -50px;}
 }
