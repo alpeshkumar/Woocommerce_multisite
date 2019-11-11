@@ -133,7 +133,7 @@ Version: 1.0
 .single-product.woocommerce .product .related.products span.onsale {top: 24px !important;left: -15px !important;padding: 0 54px 0 10px}
 .single-product.woocommerce .product .woocommerce-tabs .woocommerce-Tabs-panel--additional_information table.woocommerce-product-attributes td{padding-left:8px;}
 .single-product.woocommerce .product .woocommerce-tabs .woocommerce-Tabs-panel--reviews form.comment-form input#wp-comment-cookies-consent{margin-right:5px;}
-
+.single-product.woocommerce .product form.cart a.added_to_cart{padding: .618em 1em; line-height: 1; font-size: 100%; background: #2e2e2e; border: 1px solid #2e2e2e; float: left; border-radius: 0px; color: #fff; margin-left: 4px;}
 
 
 .wpb-js-composer .vc_tta-color-grey.vc_tta-style-flat.ab_product_tab .vc_tta-tab > a {
@@ -242,4 +242,18 @@ li.product:hover .product-info-wrap .price{
 @media only screen and (min-width: 768px) 
 {
 	.home .home_load_more_button {margin-top: -50px;}
+}
+
+@media (max-width: 767px) 
+{
+	li.product .add-to-cart-wrap {
+		opacity: 1;
+		text-align: center;
+	}
+	li.product .view-detail-wishlist-wrap {
+		opacity: 1;
+	}
+	li.product .product-thumb-wrap:before{
+		background: transparent;
+	}
 }

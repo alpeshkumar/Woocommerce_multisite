@@ -4591,7 +4591,7 @@ blockquote p{
 .woocommerce a.button.loading::after, 
 .woocommerce button.button.loading::after, 
 .woocommerce input.button.loading::after {
-    top:14px;
+    top: 0.618em;
 }
 
 /*--------------------------------------------------------------
