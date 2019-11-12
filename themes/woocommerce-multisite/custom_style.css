@@ -312,7 +312,14 @@ li.product:hover .product-info-wrap .price{
 	font-weight: bold;
 	display: block;
 }
-
+.woocommerce a.remove i.fa-trash{
+	color: #c70035;
+	font-size: 18px;
+}
+.woocommerce a.remove:hover{
+	background: inherit;
+	color: #c70035;
+}
 @media only screen and (min-width: 768px) 
 {
 	.home .home_load_more_button {margin-top: -50px;}
@@ -325,7 +332,6 @@ li.product:hover .product-info-wrap .price{
 {
 	li.product .add-to-cart-wrap {
 		opacity: 1;
-		text-align: center;
 	}
 	li.product .view-detail-wishlist-wrap {
 		opacity: 1;
