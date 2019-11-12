@@ -193,6 +193,14 @@ function ecommerce_gem_widgets_init() {
 		'before_title'  => '<h4 class="widget-title">',
 		'after_title'   => '</h4>',
 	) );
+	register_sidebar( array(
+		'name'          => sprintf( esc_html__( 'Single Product page', 'woocommerce-multisite' ), 4 ),
+		'id'            => 'single-product-page',
+		'before_widget' => '<section id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<h4 class="widget-title">',
+		'after_title'   => '</h4>',
+	) );
 }
 add_action( 'widgets_init', 'ecommerce_gem_widgets_init' );
 

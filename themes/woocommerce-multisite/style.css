@@ -551,10 +551,11 @@ textarea:focus {
 
 input[type="text"],
 input[type="email"],
+input[type="tel"],
 input[type="url"],
 input[type="password"],
 input[type="search"]{
-    padding: 6px 0 6px 9px;
+    padding: 11px 0 11px 9px
 }
 
 select {
@@ -2356,7 +2357,7 @@ li {
     top: 115%;
     right: 0px;
     width: 300px;
-    background: #052638;
+    background: #1acab4;
     z-index: 9999;
     padding: 20px;
 }
@@ -2380,8 +2381,18 @@ body.woocommerce-checkout .top-cart-content {
 }
 
 .top-cart-content .woocommerce .woocommerce-mini-cart li a {
-    font-size: 17px;
+    font-size: 15px;
     font-weight: 400;
+}
+.woocommerce.widget_shopping_cart .cart_list li a.remove{
+    top: 5px;
+}
+.woocommerce.widget_shopping_cart h2{
+    font-weight: normal;
+    color:#fff;
+    text-transform: uppercase;
+    font-size: 22px;
+    border-bottom: 1px solid;
 }
 
 .top-cart-content .woocommerce .woocommerce-mini-cart li span {
@@ -4366,7 +4377,8 @@ blockquote p{
 }
 
 .woocommerce table.shop_table th {
-    font-weight: 400;
+    font-weight: 600;
+    color: #108BDE;
 }
 
 .woocommerce .cart-collaterals .cart_totals, 
@@ -4381,6 +4393,7 @@ blockquote p{
 .woocommerce-checkout .wc-proceed-to-checkout a.checkout-button,
 .woocommerce .cart .button, 
 .woocommerce .cart input.button,
+.woocommerce button.button,
 .woocommerce a.button,
 .woocommerce #payment #place_order, 
 .woocommerce-page #payment #place_order,
@@ -4401,6 +4414,7 @@ blockquote p{
 .woocommerce-cart .wc-proceed-to-checkout a.checkout-button:hover, 
 .woocommerce-checkout .wc-proceed-to-checkout a.checkout-button:hover,
 .woocommerce .cart .button:hover, 
+.woocommerce button.button:hover,
 .woocommerce .cart input.button:hover,
 .woocommerce a.button:hover,
 .woocommerce #payment #place_order:hover, 
@@ -4411,13 +4425,10 @@ blockquote p{
     color: #fff !important;
 }
 
-.woocommerce #content table.cart td.actions .input-text, 
-.woocommerce table.cart td.actions .input-text, 
-.woocommerce-page #content table.cart td.actions .input-text, 
-.woocommerce-page table.cart td.actions .input-text {
-    width: 110px;
-    padding-top: 8px;
-    padding-bottom: 8px;
+.woocommerce #content table.cart td.actions .input-text, .woocommerce table.cart td.actions .input-text, .woocommerce-page #content table.cart td.actions .input-text, .woocommerce-page table.cart td.actions .input-text {
+	width: 200px;
+	padding-top: 6px;
+	padding-bottom: 6px;
 }
 
 .woocommerce-message,

@@ -13,8 +13,13 @@
 	<?php 
 
 	if( class_exists( 'WooCommerce' ) && is_woocommerce() ){
-
-		dynamic_sidebar( 'shop-sidebar' ); 
+		if(is_product()){
+			dynamic_sidebar( 'single-product-page' ); 
+		}
+		else{
+			dynamic_sidebar( 'shop-sidebar' ); 
+		}
+		
 
 	}else{
 
