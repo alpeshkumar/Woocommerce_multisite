@@ -667,3 +667,11 @@ function woocommerce_ajax_add_to_cart()
 
 	wp_die();
 }
+
+add_action( 'woocommerce_after_shop_loop_item', 'add_wishlist_icon_after_add_to_cart_button', 10, 0 ); 
+
+function add_wishlist_icon_after_add_to_cart_button() { 
+	echo '<div class="add-to-wishlist-wrap custom_wishlist">';
+	echo do_shortcode('[yith_wcwl_add_to_wishlist]');
+	echo '</div>';
+}

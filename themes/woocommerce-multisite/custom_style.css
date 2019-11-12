@@ -32,6 +32,7 @@ Version: 1.0
     top: 48px;
     right: 6.6%;}
 .top-header .top-account-wrapper ul#my-account-menu > li:hover ul.sub-menu{opacity:1;}
+.top-header .top-cart-wrapper{border:none;}
 
 
 /*
@@ -73,6 +74,8 @@ Version: 1.0
 * Home Page
 */
 .home #content {padding: 0;}
+.home.wpb-js-composer .vc_tta.vc_tta-tabs .vc_tta-tabs-container{display:block;}
+.home.wpb-js-composer .vc_tta.vc_tta-tabs .vc_tta-panels-container .vc_tta-panels .vc_tta-panel-heading{display:none;}
 
 
 /*
@@ -84,6 +87,9 @@ Version: 1.0
 .woocommerce .woocommerce-result-view span{cursor:pointer;}
 .woocommerce .woocommerce-result-view .active{color:#108bde;}
 .archive.woocommerce-page ul.products{width:100%;}
+.woocommerce ul.products li.product .custom_wishlist{display:inline-block;margin-left:3px;}
+.woocommerce ul.products li.product .custom_wishlist .add_to_wishlist{background: #0b8ede;color:#fff;padding: 7px 0px 8px 10px;border-radius: 0;border: 1px solid #065382;}
+.woocommerce ul.products li.product .custom_wishlist .yith-wcwl-wishlistexistsbrowse.show a{background: #2e2e2e;padding: 8px 10px;border-radius: 0;border: 1px solid #2e2e2e ;}
 
 
 /*
@@ -146,6 +152,10 @@ Version: 1.0
 .single-product.woocommerce .product .woocommerce-tabs .woocommerce-Tabs-panel--additional_information table.woocommerce-product-attributes td{padding-left:8px;}
 .single-product.woocommerce .product .woocommerce-tabs .woocommerce-Tabs-panel--reviews form.comment-form input#wp-comment-cookies-consent{margin-right:5px;}
 .single-product.woocommerce .product form.cart a.added_to_cart{padding: .618em 1em; line-height: 1; font-size: 100%; background: #2e2e2e; border: 1px solid #2e2e2e; float: left; border-radius: 0px; color: #fff; margin-left: 4px;}
+.single-product.woocommerce .product .woocommerce-tabs ul.tabs li{padding:0;}
+.single-product.woocommerce .product .woocommerce-tabs ul.tabs li a{display:inline-block;padding: 0.5em 1em;width: 100%;text-align: center;}
+.single-product.woocommerce .product .product_meta .posted_in,
+.single-product.woocommerce .product .product_meta .tagged_as{width: 100%;display: inline-block;}
 
 
 .wpb-js-composer .vc_tta-color-grey.vc_tta-style-flat.ab_product_tab .vc_tta-tab > a {
