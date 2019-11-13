@@ -87,9 +87,28 @@ Version: 1.0
 .woocommerce .woocommerce-result-view span{cursor:pointer;}
 .woocommerce .woocommerce-result-view .active{color:#108bde;}
 .archive.woocommerce-page ul.products{width:100%;}
-.woocommerce ul.products li.product .custom_wishlist{display:inline-block;margin-left:3px;}
-.woocommerce ul.products li.product .custom_wishlist .add_to_wishlist{background: #0b8ede;color:#fff;padding: 7px 0px 8px 10px;border-radius: 0;border: 1px solid #065382;}
-.woocommerce ul.products li.product .custom_wishlist .yith-wcwl-wishlistexistsbrowse.show a{background: #2e2e2e;padding: 8px 10px;border-radius: 0;border: 1px solid #2e2e2e ;}
+.woocommerce ul.products li.product .custom_wishlist {
+	display: inline-block;
+	margin-left: 3px;
+	position: relative;
+	top: 1px;
+}
+
+.woocommerce ul.products li.product .custom_wishlist .add_to_wishlist {
+	background: #000;
+	color: #fff;
+	padding: 7px 0px 7px 10px;
+	border-radius: 0;
+	border: 1px solid #065382;
+}
+.woocommerce ul.products li.product .custom_wishlist .add_to_wishlist:hover {
+	background: #016ec1;	
+}
+.single-product.woocommerce .related ul.products li.product .custom_wishlist .add_to_wishlist {
+	padding: 8px 0px 7px 10px;
+}
+
+.woocommerce ul.products li.product .custom_wishlist .yith-wcwl-wishlistexistsbrowse.show a{background: #2e2e2e;padding: 7px 10px;border-radius: 0;border: 1px solid #2e2e2e ;}
 
 
 /*

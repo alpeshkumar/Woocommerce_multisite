@@ -2360,7 +2360,8 @@ li {
     background: #fff;
     z-index: 9999;
     padding: 20px;
-	border:1px solid #333;
+    border:1px solid #333;
+    border-top:0;
 }
 
 body.woocommerce-cart .top-cart-content,
@@ -2376,8 +2377,7 @@ body.woocommerce-checkout .top-cart-content {
 
 .top-cart-content .woocommerce .woocommerce-mini-cart li a,
 .top-cart-content .woocommerce .woocommerce-mini-cart li span,
-.top-cart-content .woocommerce .woocommerce-mini-cart__total.total,
-.top-cart-content .woocommerce .widget_shopping_cart_content .woocommerce-mini-cart__empty-message {
+.top-cart-content .woocommerce .woocommerce-mini-cart__total.total {
     color: #333;
 	border-top: 3px double #333;
 }
