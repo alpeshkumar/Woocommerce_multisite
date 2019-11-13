@@ -177,9 +177,7 @@ Version: 1.0
 .single-product.woocommerce .product .product_meta .tagged_as{width: 100%;display: inline-block;}
 .single-product.woocommerce div.product div.images .owl-carousel.flex-control-thumbs li{width:unset;}
 .single-product.woocommerce div.product div.images .owl-carousel.flex-control-thumbs .owl-stage-outer{position: relative;}
-.single-product.woocommerce div.product div.images .owl-carousel.flex-control-thumbs .owl-nav{position: absolute;top: 35%;width: 100%;}
 .single-product.woocommerce div.product div.images .owl-carousel.flex-control-thumbs button{background: #108BDE;width: 20px;color: #fff;}
-.single-product.woocommerce div.product div.images .owl-carousel.flex-control-thumbs button.owl-next{float:right;}
 
 
 .wpb-js-composer .vc_tta-color-grey.vc_tta-style-flat.ab_product_tab .vc_tta-tab > a {
@@ -353,6 +351,16 @@ li.product:hover .product-info-wrap .price{
 .woocommerce a.remove:hover{
 	background: inherit;
 	color: #c70035;
+}
+.woocommerce-product-gallery .owl-carousel .owl-nav button.owl-prev{
+	position: relative;
+	float: left;
+	top: -60px;
+}
+.woocommerce-product-gallery .owl-carousel .owl-nav button.owl-next{
+	position: relative;
+	float: right;
+	top: -60px;
 }
 @media only screen and (min-width: 768px) 
 {
