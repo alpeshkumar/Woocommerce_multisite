@@ -37,13 +37,10 @@ jQuery(document).ready(function ($)
 		margin: 10,
 		responsiveClass: true,
 		responsive: {
-		  0: {
-			items: 2,
-		  },
-		  600: {
+		  479: {
 			items: 3,
 		  },
-		  1000: {
+		  480: {
 			items: 4,
 		  }
 		}
