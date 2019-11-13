@@ -156,6 +156,11 @@ Version: 1.0
 .single-product.woocommerce .product .woocommerce-tabs ul.tabs li a{display:inline-block;padding: 0.5em 1em;width: 100%;text-align: center;}
 .single-product.woocommerce .product .product_meta .posted_in,
 .single-product.woocommerce .product .product_meta .tagged_as{width: 100%;display: inline-block;}
+.single-product.woocommerce div.product div.images .owl-carousel.flex-control-thumbs li{width:unset;}
+.single-product.woocommerce div.product div.images .owl-carousel.flex-control-thumbs .owl-stage-outer{position: relative;}
+.single-product.woocommerce div.product div.images .owl-carousel.flex-control-thumbs .owl-nav{position: absolute;top: 35%;width: 100%;}
+.single-product.woocommerce div.product div.images .owl-carousel.flex-control-thumbs button{background: #108BDE;width: 20px;color: #fff;}
+.single-product.woocommerce div.product div.images .owl-carousel.flex-control-thumbs button.owl-next{float:right;}
 
 
 .wpb-js-composer .vc_tta-color-grey.vc_tta-style-flat.ab_product_tab .vc_tta-tab > a {
