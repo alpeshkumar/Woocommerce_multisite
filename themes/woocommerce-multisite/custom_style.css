@@ -178,6 +178,27 @@ Version: 1.0
 .single-product.woocommerce div.product div.images .owl-carousel.flex-control-thumbs li{width:unset;}
 .single-product.woocommerce div.product div.images .owl-carousel.flex-control-thumbs .owl-stage-outer{position: relative;}
 .single-product.woocommerce div.product div.images .owl-carousel.flex-control-thumbs button{background: #108BDE;width: 20px;color: #fff;}
+.single-product.woocommerce div.product .woocommerce-product-gallery .woocommerce-product-gallery__trigger{display:none;}
+.single-product.woocommerce div.product .woocommerce-product-gallery .custom_wishlist{position: absolute;top: .5em;right: .5em;z-index: 9;width: 36px;height: 36px;background: #fff;border-radius: 100%;box-sizing: content-box;}
+.single-product.woocommerce div.product .woocommerce-product-gallery .custom_wishlist a{display: inline-block;position: relative;left: 11px;top: 6px;}
+.single-product.woocommerce .pswp__bg{background:rgba(0, 0, 0, 0.8);}
+
+
+/*
+* Woocommerce Page
+*/
+.woocommerce-page table.shop_table thead{background:#108BDE}
+.woocommerce-page table.shop_table thead th{color:#fff;}
+
+
+/*
+* Woocommerce Checkout Page
+*/
+.woocommerce-page.woocommerce-checkout form .form-row input.input-text, 
+.woocommerce-page.woocommerce-checkout form .form-row textarea,
+.woocommerce-page.woocommerce-checkout .select2-container .select2-selection--single{height: 41px;border: 1px solid #ccc;border-radius: 0;}
+.woocommerce-page.woocommerce-checkout .select2-container--default .select2-selection--single .select2-selection__rendered {line-height: 39px;}
+.woocommerce-page.woocommerce-checkout .select2-container--default .select2-selection--single .select2-selection__arrow{height: 37px;}
 
 
 .wpb-js-composer .vc_tta-color-grey.vc_tta-style-flat.ab_product_tab .vc_tta-tab > a {

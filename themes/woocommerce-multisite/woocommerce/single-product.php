@@ -58,3 +58,22 @@ get_header( 'shop' ); ?>
 <?php get_footer( 'shop' );
 
 /* Omit closing PHP tag at the end of PHP files to avoid "headers already sent" issues. */
+
+
+$wishlisthtml = '<div class="add-to-wishlist-wrap custom_wishlist">' . do_shortcode('[yith_wcwl_add_to_wishlist]'). '</div>';
+$wishlisthtml_minify = str_replace(array("\n","\r","\t"),'',$wishlisthtml);
+
+?>
+<script>
+jQuery(document).ready(function ($)
+{
+	var html = <?php echo "'" . $wishlisthtml_minify . "'"; ?>;	
+	
+	$('.woocommerce-product-gallery').prepend(html);
+	
+	$( ".flex-viewport" ).on( "click", function() {
+		$( ".woocommerce-product-gallery__trigger" ).trigger( "click" );
+	});
+	
+});
+</script>
