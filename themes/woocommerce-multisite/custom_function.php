@@ -38,8 +38,8 @@ function add_search_form($items, $args) {
 	echo '<pre>';
 	*/
 		
-    //if( $args->theme_location == 'primary' ){
-	if( in_array($args->theme_location, ['primary','primary-menu-after-login']) ){		
+    if( $args->theme_location == 'primary' ){
+		
 		
 		/*
 		* Cart Icon Menu
@@ -680,10 +680,3 @@ function add_wishlist_icon_after_add_to_cart_button() {
 	echo do_shortcode('[yith_wcwl_add_to_wishlist]');
 	echo '</div>';
 }
-
-function register_header_menu_after_login()
-{
-    register_nav_menu('primary-menu-after-login', 'Primary Menu After Login');
-}
-
-add_action('init', 'register_header_menu_after_login');
