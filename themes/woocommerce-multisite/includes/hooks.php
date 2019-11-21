@@ -429,29 +429,14 @@ if ( ! function_exists( 'ecommerce_gem_header_action' ) ) :
             <div id="main-nav" class="clear-fix">
                 <nav id="site-navigation" class="main-navigation" role="navigation">
                     <div class="wrap-menu-content">
-        				<?php
-						
-						if(is_user_logged_in())
-						{
-							wp_nav_menu(
-								array(
-								'theme_location' => 'primary-menu-after-login',
-								'fallback_cb'    => 'ecommerce_gem_primary_navigation_fallback',
-								)
-							);
-						}
-						else
-						{
-							wp_nav_menu(
-								array(
-								'theme_location' => 'primary',
-								'menu_id'        => 'primary-menu',
-								'fallback_cb'    => 'ecommerce_gem_primary_navigation_fallback',
-								)
-							);
-						}
-						
-        				
+        				<?php						
+						wp_nav_menu(
+							array(
+							'theme_location' => 'primary',
+							'menu_id'        => 'primary-menu',
+							'fallback_cb'    => 'ecommerce_gem_primary_navigation_fallback',
+							)
+						);        				
         				?>
                     </div><!-- .menu-content -->
                 </nav><!-- #site-navigation -->
