@@ -38,8 +38,8 @@ function add_search_form($items, $args) {
 	echo '<pre>';
 	*/
 		
-    //if( $args->theme_location == 'primary' ){
-	if( in_array($args->theme_location, ['primary'])){
+    if( $args->theme_location == 'primary' ){
+		
 		
 		/*
 		* Cart Icon Menu
@@ -258,16 +258,18 @@ if ( ! function_exists( 'ecommerce_gem_top_header_action' ) ) :
                         }else{ 
 
                             $login_text  = ecommerce_gem_get_option( 'login_text' );
-
+                            $register_text  = ecommerce_gem_get_option( 'register_text' );
+							$register_page_link  = get_site_url() . '/register';
                             ?>
-
                             <div class="top-account-wrapper logged-out">
                                 <a href="<?php echo esc_url( get_permalink( get_option( 'woocommerce_myaccount_page_id' ) ) ); ?>">
                                     <i class="fa <?php echo esc_attr( $login_icon ); ?>" aria-hidden="true"></i>
                                     <span class="top-log-in"><?php echo esc_html( $login_text ); ?></span>
                                 </a>
+								<a href="<?php echo $register_page_link; ?>">
+                                    <span class="top-log-in"> / <?php echo esc_html( $register_text ); ?></span>
+                                </a>
                             </div>
-
                             <?php
 
                         }

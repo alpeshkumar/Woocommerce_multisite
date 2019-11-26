@@ -201,6 +201,17 @@ Version: 1.0
 .woocommerce-page.woocommerce-checkout .select2-container--default .select2-selection--single .select2-selection__arrow{height: 37px;}
 
 
+/*
+* Woocommerce My Account Page
+*/
+.woocommerce-page.woocommerce-account #customer_login .u-column1.col-1,
+.woocommerce-page.woocommerce-account #customer_login .u-column2.col-2{width: 100%;}
+.woocommerce-page.woocommerce-account #customer_login .u-column2.col-2{display:none;}
+.woocommerce-page.woocommerce-account .wc_multisite_login #customer_login .u-column1.col-1{display:none;}
+.woocommerce-page.woocommerce-account .wc_multisite_login #customer_login .u-column2.col-2{display:block;}
+
+
+
 .wpb-js-composer .vc_tta-color-grey.vc_tta-style-flat.ab_product_tab .vc_tta-tab > a {
 	background-color: inherit;
 	color: #777777;
