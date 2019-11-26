@@ -256,7 +256,24 @@ $wp_customize->add_setting( 'theme_options[login_text]',
 );
 $wp_customize->add_control( 'theme_options[login_text]',
 	array(
-		'label'    			=> esc_html__( 'Login/Register Text', 'woocommerce-multisite' ),
+		'label'    			=> esc_html__( 'Login Text', 'woocommerce-multisite' ),
+		'section'  			=> 'section_header',
+		'type'     			=> 'text',
+		'priority' 			=> 100,
+		'active_callback' 	=> 'ecommerce_gem_is_top_login_logout_active',
+	)
+);
+
+// Setting Register text.
+$wp_customize->add_setting( 'theme_options[register_text]',
+	array(
+		'default'           => $default['register_text'],
+		'sanitize_callback' => 'sanitize_text_field',
+	)
+);
+$wp_customize->add_control( 'theme_options[register_text]',
+	array(
+		'label'    			=> esc_html__( 'Register Text', 'woocommerce-multisite' ),
 		'section'  			=> 'section_header',
 		'type'     			=> 'text',
 		'priority' 			=> 100,

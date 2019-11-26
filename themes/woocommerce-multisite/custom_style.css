@@ -201,6 +201,17 @@ Version: 1.0
 .woocommerce-page.woocommerce-checkout .select2-container--default .select2-selection--single .select2-selection__arrow{height: 37px;}
 
 
+/*
+* Woocommerce My Account Page
+*/
+.woocommerce-page.woocommerce-account #customer_login .u-column1.col-1,
+.woocommerce-page.woocommerce-account #customer_login .u-column2.col-2{width: 100%;}
+.woocommerce-page.woocommerce-account #customer_login .u-column2.col-2{display:none;}
+.woocommerce-page.woocommerce-account .wc_multisite_login #customer_login .u-column1.col-1{display:none;}
+.woocommerce-page.woocommerce-account .wc_multisite_login #customer_login .u-column2.col-2{display:block;}
+
+
+
 .wpb-js-composer .vc_tta-color-grey.vc_tta-style-flat.ab_product_tab .vc_tta-tab > a {
 	background-color: inherit;
 	color: #777777;
@@ -383,28 +394,6 @@ li.product:hover .product-info-wrap .price{
 	float: right;
 	top: -60px;
 }
-.entry-summary .yith-wcwl-add-to-wishlist{
-	display: none;
-}
-.woocommerce-account .woocommerce-MyAccount-navigation{
-	border-right: 1px solid #ccc;
-}
-.woocommerce-account .woocommerce-MyAccount-content{
-	border: 1px solid#108bde;
-	padding: 20px;
-}
-.woocommerce-account .woocommerce-MyAccount-navigation li{
-	list-style: none;
-}
-.woocommerce-account .woocommerce-MyAccount-navigation ul{
-	margin-left: 0;
-}
-.woocommerce-account .woocommerce-MyAccount-navigation li a{
-	color: #333;
-}
-.woocommerce-account .woocommerce-MyAccount-navigation li.is-active a{
-	color: #108BDE;
-}
 @media only screen and (min-width: 768px) 
 {
 	.home .home_load_more_button {margin-top: -50px;}
@@ -423,8 +412,5 @@ li.product:hover .product-info-wrap .price{
 	}
 	li.product .product-thumb-wrap:before{
 		background: transparent;
-	}
-	.woocommerce-account .woocommerce-MyAccount-navigation{
-		border-right: 0;
 	}
 }
