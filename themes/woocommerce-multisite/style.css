@@ -2379,7 +2379,6 @@ body.woocommerce-checkout .top-cart-content {
 .top-cart-content .woocommerce .woocommerce-mini-cart li span,
 .top-cart-content .woocommerce .woocommerce-mini-cart__total.total {
     color: #333;
-	border-top: 3px double #333;
 }
 
 .top-cart-content .woocommerce .woocommerce-mini-cart li a {
