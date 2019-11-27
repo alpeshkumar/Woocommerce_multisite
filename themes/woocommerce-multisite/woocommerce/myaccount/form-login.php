@@ -26,6 +26,9 @@ do_action( 'woocommerce_before_customer_login_form' ); ?>
 	$login_page_id = get_option( 'woocommerce_myaccount_page_id' );
 	$current_page_id = get_the_ID();
 	
+	$login_page_link = get_permalink($login_page_id);
+	$register_page_link = get_site_url().'/register/';
+	
 	if($login_page_id == $current_page_id)
 	{
 		?>		
@@ -58,6 +61,10 @@ do_action( 'woocommerce_before_customer_login_form' ); ?>
 				</p>
 
 				<?php do_action( 'woocommerce_login_form_end' ); ?>
+				
+				<p class="woocommerce-register-link">
+					Not a member yet? <a href="<?php echo $register_page_link; ?>"><?php esc_html_e( 'Register here', 'woocommerce' ); ?></a>
+				</p>
 
 			</form>
 
@@ -110,6 +117,10 @@ do_action( 'woocommerce_before_customer_login_form' ); ?>
 					</p>
 
 					<?php do_action( 'woocommerce_register_form_end' ); ?>
+					
+					<p class="woocommerce-login-link">
+						If you already member? <a href="<?php echo $login_page_link; ?>"><?php esc_html_e( 'Login here', 'woocommerce' ); ?></a>
+					</p>
 
 				</form>
 
