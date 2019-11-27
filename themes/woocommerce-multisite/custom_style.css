@@ -394,6 +394,28 @@ li.product:hover .product-info-wrap .price{
 	float: right;
 	top: -60px;
 }
+.entry-summary .yith-wcwl-add-to-wishlist{
+	display: none;
+}
+.woocommerce-account .woocommerce-MyAccount-navigation{
+	border-right: 1px solid #ccc;
+}
+.woocommerce-account .woocommerce-MyAccount-content{
+	border: 1px solid#108bde;
+	padding: 20px;
+}
+.woocommerce-account .woocommerce-MyAccount-navigation li{
+	list-style: none;
+}
+.woocommerce-account .woocommerce-MyAccount-navigation ul{
+	margin-left: 0;
+}
+.woocommerce-account .woocommerce-MyAccount-navigation li a{
+	color: #333;
+}
+.woocommerce-account .woocommerce-MyAccount-navigation li.is-active a{
+	color: #108BDE;
+}
 @media only screen and (min-width: 768px) 
 {
 	.home .home_load_more_button {margin-top: -50px;}
