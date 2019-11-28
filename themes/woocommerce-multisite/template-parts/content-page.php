@@ -17,7 +17,19 @@
         <div class="content-wrap-inner">
 
             <header class="entry-header">
-                <?php the_title('<h1 class="entry-title">', '</h1>'); ?>
+                <?php
+				$current_page_id = get_the_ID();
+				if (!is_user_logged_in())
+				{
+					$page_title_align = get_post_meta($current_page_id, 'page_title_align', true);
+					
+					the_title('<h1 class="entry-title '. $page_title_align .'">', '</h1>');
+				}
+				else
+				{
+					the_title('<h1 class="entry-title">', '</h1>');
+				}					
+				?>
             </header><!-- .entry-header -->
 
             <div class="entry-content">

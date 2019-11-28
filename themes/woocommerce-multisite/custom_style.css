@@ -207,8 +207,7 @@ Version: 1.0
 .woocommerce-page.woocommerce-account #customer_login .u-column1.col-1,
 .woocommerce-page.woocommerce-account #customer_login .u-column2.col-2{width: 50%;float: none;margin: 0 auto;}
 .woocommerce-privacy-policy-text p{font-size: 12px;}
-.ab_login h1.entry-title,
-.ab_register h1.entry-title{text-align: center;}
+h1.entry-title.center{text-align: center;}
 
 
 

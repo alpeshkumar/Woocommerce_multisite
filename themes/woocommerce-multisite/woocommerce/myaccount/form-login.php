@@ -146,16 +146,6 @@ if (!is_user_logged_in())
 		jQuery( document ).ready(function() {
 			jQuery('#breadcrumb ul.trail-items li.trail-end span').html('Login');
 			jQuery('.entry-header h1.entry-title').html('Login');
-			jQuery('body').addClass('ab_login');
-		});		
-		</script>
-		<?php	
-	}
-	else{
-		?>
-		<script>
-		jQuery( document ).ready(function() {
-			jQuery('body').addClass('ab_register');
 		});		
 		</script>
 		<?php	

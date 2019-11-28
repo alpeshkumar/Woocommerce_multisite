@@ -682,3 +682,47 @@ function add_wishlist_icon_after_add_to_cart_button() {
 	echo do_shortcode('[yith_wcwl_add_to_wishlist]');
 	echo '</div>';
 }
+
+add_action('add_meta_boxes', 'multisite_title_metabox');
+
+function multisite_title_metabox()
+{
+    add_meta_box('page_title_setting', 'Page Title Setting', 'multisite_title_metabox_callback', 'page', 'side');
+}
+
+function multisite_title_metabox_callback($post)
+{
+    global $wpdb;
+	
+	$arrData = [
+		'left' => 'Left',
+		'center' => 'Center',
+		'right' => 'Right',
+	];
+	
+	echo '<select name="page_title_align">';
+	echo '<option value="">Default</option>';
+
+	$page_title_align = get_post_meta($post->ID, 'page_title_align', true);
+
+	foreach ($arrData as $key => $value)
+	{
+	    $slt = '';
+
+	    if ($page_title_align == $key)
+	    {
+			$slt = ' Selected ';
+	    }
+
+	    echo '<option ' . $slt . ' value="' . $key . '">' . $value . '</option>';
+	}
+
+	echo '</select>';
+}
+
+add_action('save_post', 'save_multisite_title_metabox');
+
+function save_multisite_title_metabox($post_id)
+{
+    update_post_meta($post_id, 'page_title_align', $_POST['page_title_align']);
+}
