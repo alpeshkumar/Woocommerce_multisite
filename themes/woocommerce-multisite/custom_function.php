@@ -726,3 +726,128 @@ function save_multisite_title_metabox($post_id)
 {
     update_post_meta($post_id, 'page_title_align', $_POST['page_title_align']);
 }
+
+add_filter( 'woocommerce_widget_cart_is_hidden', 'always_show_cart', 40, 0 );
+function always_show_cart() {
+    return false;
+}
+
+add_action('wp_head', 'my_custom_styles', 100);
+function my_custom_styles()
+{
+	echo "<style>
+		.widget_price_filter .price_slider_amount input#min_price,
+		.widget_price_filter .price_slider_amount input#max_price,
+		.widget_price_filter .price_slider_amount button.button{
+			display:none;
+		}
+	</style>";
+}
+
+add_filter( 'woocommerce_product_tabs', 'woo_new_product_tab' );
+function woo_new_product_tab( $tabs ) 
+{
+	$tabs['wc_return_and_shipping_policies'] = array(
+		'title' 	=> __( 'Return and Shipping Policies', 'woocommerce' ),
+		'priority' 	=> 50,
+		'callback' 	=> 'woo_return_and_shipping_policies_tab_content'
+	);
+
+	return $tabs;
+}
+
+function woo_return_and_shipping_policies_tab_content() 
+{
+	global $product;
+	$product_id = $product->get_id();
+	
+	//echo '<h2>Return and Shipping Policies</h2>';
+	
+	$show_this_policy = get_post_meta($product_id, 'wc_return_and_shipping_policies_details', true);
+	if(!empty($show_this_policy))
+	{
+		$wc_return_and_shipping_policies_details = get_post_meta($product_id, 'wc_return_and_shipping_policies_details', true);
+		echo $wc_return_and_shipping_policies_details;
+	}
+	else
+	{
+		$wc_globle_return_and_shipping_policies_details = get_option('wc_globle_return_and_shipping_policies_details', false);
+		echo $wc_globle_return_and_shipping_policies_details;
+	}
+}
+
+add_action('add_meta_boxes', 'wc_return_and_shipping_policies_metabox');
+function wc_return_and_shipping_policies_metabox()
+{
+    add_meta_box('wc_return_and_shipping_policies', 'Return and Shipping Policies', 'wc_return_and_shipping_policies_metabox_callback', 'product', 'normal');
+}
+function wc_return_and_shipping_policies_metabox_callback($product)
+{
+	// $show_this_policy = get_post_meta($product->ID, 'show_this_policy', true);
+	// $checked = '';
+	// if($show_this_policy == 'yes')
+	// {
+	// 	$checked = 'checked';
+	// }
+	// echo '<p>Show Below Policies Details in this Product :: <input '. $checked .' type="checkbox" name="show_this_policy" value="yes"></p>';
+	
+    $settings = array(
+		'textarea_name' => 'wc_return_and_shipping_policies_details',
+		'quicktags'     => array( 'buttons' => 'em,strong,link' ),
+		'tinymce'       => array(
+			'theme_advanced_buttons1' => 'bold,italic,strikethrough,separator,bullist,numlist,separator,blockquote,separator,justifyleft,justifycenter,justifyright,separator,link,unlink,separator,undo,redo,separator',
+			'theme_advanced_buttons2' => '',
+		),
+		'editor_css'    => '<style>#wp-wc_return_and_shipping_policies_details-editor-container .wp-editor-area{height:175px; width:100%;}</style>',
+	);
+	
+	$wc_return_and_shipping_policies_details = get_post_meta($product->ID, 'wc_return_and_shipping_policies_details', true);
+	
+	wp_editor( htmlspecialchars_decode( $wc_return_and_shipping_policies_details, ENT_QUOTES ), 'wc_return_and_shipping_policies_details', $settings );
+}
+
+
+add_action('save_post', 'save_wc_return_and_shipping_policies_metabox');
+function save_wc_return_and_shipping_policies_metabox($product_id)
+{
+    //update_post_meta($product_id, 'show_this_policy', $_POST['show_this_policy']);
+    update_post_meta($product_id, 'wc_return_and_shipping_policies_details', $_POST['wc_return_and_shipping_policies_details']);
+}
+
+
+add_action('woocommerce_settings_tabs_array', 'woocommerce_return_and_shipping_policies_tabs_array', 51);
+function woocommerce_return_and_shipping_policies_tabs_array($tabs)
+{
+	$tabs['return_and_shipping_policies'] = __('Return and Shipping Policies', 'woocommerce_return_and_shipping_policies');
+    return $tabs;
+}
+
+add_action( 'woocommerce_settings_tabs_return_and_shipping_policies', 'return_and_shipping_policies_content' );
+function return_and_shipping_policies_content() 
+{
+	$editor_settings = array(
+		'textarea_name' => 'wc_globle_return_and_shipping_policies_details',
+		'quicktags'     => array( 'buttons' => 'em,strong,link' ),
+		'tinymce'       => array(
+			'theme_advanced_buttons1' => 'bold,italic,strikethrough,separator,bullist,numlist,separator,blockquote,separator,justifyleft,justifycenter,justifyright,separator,link,unlink,separator,undo,redo,separator',
+			'theme_advanced_buttons2' => '',
+		),
+		'editor_css'    => '<style>#wp-wc_globle_return_and_shipping_policies_details-editor-container .wp-editor-area{height:175px; width:100%;}</style>',
+	);
+	
+	$wc_globle_return_and_shipping_policies_details = get_option('wc_globle_return_and_shipping_policies_details', false);
+	
+	wp_editor( htmlspecialchars_decode( $wc_globle_return_and_shipping_policies_details, ENT_QUOTES ), 'wc_globle_return_and_shipping_policies_details', $editor_settings );
+}
+
+add_action( 'woocommerce_update_options_return_and_shipping_policies', 'update_return_and_shipping_policies_content' );
+function update_return_and_shipping_policies_content() {
+    update_option('wc_globle_return_and_shipping_policies_details', $_POST['wc_globle_return_and_shipping_policies_details']);
+}
+add_filter( 'woocommerce_ship_to_different_address_checked', '__return_false' );
+
+
+
+
+
+

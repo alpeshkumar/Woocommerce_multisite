@@ -30,7 +30,7 @@ Version: 1.0
     position: absolute;
     z-index: 999;
     top: 48px;
-    right: 6.6%;}
+}
 .top-header .top-account-wrapper ul#my-account-menu > li:hover ul.sub-menu{opacity:1;}
 .top-header .top-cart-wrapper{border:none;}
 
@@ -415,7 +415,30 @@ li.product:hover .product-info-wrap .price{
 .woocommerce-account .woocommerce-MyAccount-navigation li.is-active a{
 	color: #108BDE;
 }
-
+/* Hide the "x" */
+ 
+.wishlist_table a.remove {
+    text-indent: -9999px;
+    border: 0;
+}
+ 
+/* Add a Fontawesome icon instead */
+/* Learn More in the Following Paragraphs */
+ 
+.wishlist_table a.remove:before {
+    font-family: FontAwesome;
+    content: "\f1f8";
+    float: left;
+	text-indent: 0;
+	color: #c70035;
+}
+.woocommerce #content table.wishlist_table.cart a.remove:hover {
+    background-color: inherit;
+}
+.variations_form button.button.alt.disabled, 
+.variations_form .woocommerce button.button.alt.disabled:hover{
+	background-color: #108BDE;
+}
 @media only screen and (min-width: 768px) 
 {
 	.home .home_load_more_button {margin-top: -50px;}
@@ -433,6 +456,13 @@ li.product:hover .product-info-wrap .price{
 	}
 	li.product .product-thumb-wrap:before{
 		background: transparent;
+	}
+	.woocommerce table.shop_table_responsive tr td.product-thumbnail::before, 
+	.woocommerce-page table.shop_table_responsive tr td.product-thumbnail::before {
+		content: attr(data-title) "";
+	}
+	.woocommerce #content table.cart .product-thumbnail, .woocommerce table.cart .product-thumbnail, .woocommerce-page #content table.cart .product-thumbnail, .woocommerce-page table.cart .product-thumbnail {
+		display: block;
 	}
 }
 

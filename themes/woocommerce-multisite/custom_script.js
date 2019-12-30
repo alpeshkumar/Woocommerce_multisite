@@ -48,7 +48,7 @@ jQuery(document).ready(function ($)
 	
 	(function ($) {
 
-		$(document).on('click', '.single_add_to_cart_button', function (e) {
+		$(document).on('click', '.woocommerce-variation-add-to-cart-enabled .single_add_to_cart_button', function (e) {
 			e.preventDefault();
 
 			var $thisbutton = $(this),
