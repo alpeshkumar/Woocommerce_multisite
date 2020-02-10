@@ -62,7 +62,7 @@ function add_search_form($items, $args) {
 		/*
 		* Search Icon Menu
 		*/
-		$items .= '<li class="menu-item">';
+		$items .= '<li class="menu-item custom_search_menu">';
 				
 		$items .= '<div class="search-holder">
 
@@ -208,8 +208,8 @@ if ( ! function_exists( 'ecommerce_gem_top_header_action' ) ) :
                     // Wishlist details
                     $show_wishlist  = ecommerce_gem_get_option( 'show_wishlist' );
                     $wishlist_icon  = ecommerce_gem_get_option( 'wishlist_icon' );
-
-                    if( true == $show_wishlist && !empty( $wishlist_icon ) && class_exists( 'YITH_WCWL' ) ){ ?>
+					 
+                    if( true == $show_wishlist && !empty( $wishlist_icon ) && class_exists( 'YITH_WCWL' ) && is_user_logged_in() ){ ?>
                         <div class="top-wishlist-wrapper">
                             <div class="top-icon-wrap">
                                 <?php 
@@ -282,7 +282,7 @@ if ( ! function_exists( 'ecommerce_gem_top_header_action' ) ) :
                     if( true == $show_cart && !empty( $cart_icon ) && class_exists( 'WooCommerce' ) ){ ?>
                         <div class="top-cart-wrapper">
                             <div class="top-icon-wrap">
-                                <a href="<?php echo esc_url( wc_get_cart_url() ); ?>">
+                                <a href="#">
                                     <i class="fa <?php echo esc_attr( $cart_icon ); ?>" aria-hidden="true"></i>
                                     <span class="cart-value ec-cart-fragment"> <?php echo wp_kses_data( WC()->cart->get_cart_contents_count() );?></span>
                                 </a>
@@ -602,7 +602,7 @@ function change_view_cart_text_to_icon( $params, $handle ){
 	return $params;
 }
 
-add_filter( 'woocommerce_product_add_to_cart_text', 'replace_add_to_cart_text', 10, 2 );
+//add_filter( 'woocommerce_product_add_to_cart_text', 'replace_add_to_cart_text', 10, 2 );
 function replace_add_to_cart_text() 
 {
     return __( "<i class='fa fa-plus-square'></i> &nbsp; Add to cart", 'woocommerce' );
@@ -675,7 +675,7 @@ function woocommerce_ajax_add_to_cart()
 	wp_die();
 }
 
-add_action( 'woocommerce_after_shop_loop_item', 'add_wishlist_icon_after_add_to_cart_button', 10, 0 ); 
+//add_action( 'woocommerce_after_shop_loop_item', 'add_wishlist_icon_after_add_to_cart_button', 10, 0 ); 
 
 function add_wishlist_icon_after_add_to_cart_button() { 
 	echo '<div class="add-to-wishlist-wrap custom_wishlist">';
@@ -767,11 +767,13 @@ function woo_return_and_shipping_policies_tab_content()
 	if(!empty($show_this_policy))
 	{
 		$wc_return_and_shipping_policies_details = get_post_meta($product_id, 'wc_return_and_shipping_policies_details', true);
+		$wc_return_and_shipping_policies_details = stripslashes($wc_return_and_shipping_policies_details);
 		echo $wc_return_and_shipping_policies_details;
 	}
 	else
 	{
 		$wc_globle_return_and_shipping_policies_details = get_option('wc_globle_return_and_shipping_policies_details', false);
+		$wc_globle_return_and_shipping_policies_details = stripslashes($wc_globle_return_and_shipping_policies_details);
 		echo $wc_globle_return_and_shipping_policies_details;
 	}
 }
@@ -802,6 +804,7 @@ function wc_return_and_shipping_policies_metabox_callback($product)
 	);
 	
 	$wc_return_and_shipping_policies_details = get_post_meta($product->ID, 'wc_return_and_shipping_policies_details', true);
+	$wc_return_and_shipping_policies_details = stripslashes($wc_return_and_shipping_policies_details);
 	
 	wp_editor( htmlspecialchars_decode( $wc_return_and_shipping_policies_details, ENT_QUOTES ), 'wc_return_and_shipping_policies_details', $settings );
 }
@@ -824,10 +827,41 @@ function woocommerce_return_and_shipping_policies_tabs_array($tabs)
 
 add_action( 'woocommerce_settings_tabs_return_and_shipping_policies', 'return_and_shipping_policies_content' );
 function return_and_shipping_policies_content() 
-{
+{	
+	echo '<table class="form-table">';
+	
+	$wc_description_tab_title = get_option('wc_description_tab_title', false);
+	echo '<tr>';
+	echo '<th class="titledesc">Description tab title</th>';
+	echo '<td class="forminp forminp-text"><input name="wc_description_tab_title" value="' . $wc_description_tab_title . '"></td>';
+	echo '</tr>';
+	
+	$wc_additional_information_tab_title = get_option('wc_additional_information_tab_title', false);
+	echo '<tr>';
+	echo '<th class="titledesc">Additional Information tab title</th>';
+	echo '<td class="forminp forminp-text"><input name="wc_additional_information_tab_title" value="' . $wc_additional_information_tab_title . '"></td>';
+	echo '</tr>';
+	
+	$wc_reviews_tab_title = get_option('wc_reviews_tab_title', false);
+	echo '<tr>';
+	echo '<th class="titledesc">Reviews tab title</th>';
+	echo '<td class="forminp forminp-text"><input name="wc_reviews_tab_title" value="' . $wc_reviews_tab_title . '"></td>';
+	echo '</tr>';
+	
+	$wc_return_and_shipping_policies_tab_title = get_option('wc_return_and_shipping_policies_tab_title', false);
+	echo '<tr>';
+	echo '<th class="titledesc">Return and Policies tab title</th>';
+	echo '<td class="forminp forminp-text"><input name="wc_return_and_shipping_policies_tab_title" value="' . $wc_return_and_shipping_policies_tab_title . '"></td>';
+	echo '</tr>';
+	
+	echo '<tr>';
+	echo '<th colspan="2" class="titledesc">Return and Policies tab content</th>';	
+	echo '</table>';
+	
+	
 	$editor_settings = array(
 		'textarea_name' => 'wc_globle_return_and_shipping_policies_details',
-		'quicktags'     => array( 'buttons' => 'em,strong,link' ),
+		'quicktags'     => array( 'buttons' => 'em,strong,link,p' ),
 		'tinymce'       => array(
 			'theme_advanced_buttons1' => 'bold,italic,strikethrough,separator,bullist,numlist,separator,blockquote,separator,justifyleft,justifycenter,justifyright,separator,link,unlink,separator,undo,redo,separator',
 			'theme_advanced_buttons2' => '',
@@ -836,6 +870,7 @@ function return_and_shipping_policies_content()
 	);
 	
 	$wc_globle_return_and_shipping_policies_details = get_option('wc_globle_return_and_shipping_policies_details', false);
+	$wc_globle_return_and_shipping_policies_details = stripslashes($wc_globle_return_and_shipping_policies_details);
 	
 	wp_editor( htmlspecialchars_decode( $wc_globle_return_and_shipping_policies_details, ENT_QUOTES ), 'wc_globle_return_and_shipping_policies_details', $editor_settings );
 }
@@ -843,11 +878,58 @@ function return_and_shipping_policies_content()
 add_action( 'woocommerce_update_options_return_and_shipping_policies', 'update_return_and_shipping_policies_content' );
 function update_return_and_shipping_policies_content() {
     update_option('wc_globle_return_and_shipping_policies_details', $_POST['wc_globle_return_and_shipping_policies_details']);
+	
+    update_option('wc_description_tab_title', $_POST['wc_description_tab_title']);
+    update_option('wc_additional_information_tab_title', $_POST['wc_additional_information_tab_title']);
+    update_option('wc_reviews_tab_title', $_POST['wc_reviews_tab_title']);
+    update_option('wc_return_and_shipping_policies_tab_title', $_POST['wc_return_and_shipping_policies_tab_title']);
 }
 add_filter( 'woocommerce_ship_to_different_address_checked', '__return_false' );
 
 
+add_filter( 'woocommerce_product_tabs', 'woo_rename_tabs', 98 );
+function woo_rename_tabs( $tabs ) {
+	
+	$wc_description_tab_title = get_option('wc_description_tab_title', false);
+	$wc_description_tab_title = $wc_description_tab_title != '' ? $wc_description_tab_title : 'Description';
+	
+	$wc_additional_information_tab_title = get_option('wc_additional_information_tab_title', false);
+	$wc_additional_information_tab_title = $wc_additional_information_tab_title != '' ? $wc_additional_information_tab_title : 'Additional information';
+	
+	$wc_reviews_tab_title = get_option('wc_reviews_tab_title', false);
+	$wc_reviews_tab_title = $wc_reviews_tab_title != '' ? $wc_reviews_tab_title : 'Reviews';
+	
+	$wc_return_and_shipping_policies_tab_title = get_option('wc_return_and_shipping_policies_tab_title', false);
+	$wc_return_and_shipping_policies_tab_title = $wc_return_and_shipping_policies_tab_title != '' ? $wc_return_and_shipping_policies_tab_title : 'Return and Shipping Policies';
 
+	$tabs['description']['title'] = $wc_description_tab_title;		// Rename the description tab	
+	$tabs['additional_information']['title'] = $wc_additional_information_tab_title;	// Rename the additional information tab
+	$tabs['reviews']['title'] = str_replace("Reviews", $wc_reviews_tab_title, $tabs['reviews']['title']);				// Rename the reviews tab
+	$tabs['wc_return_and_shipping_policies']['title'] = $wc_return_and_shipping_policies_tab_title;	// Rename the additional information tab
 
+	return $tabs;
+}
 
+remove_action( 'woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_price', 10 );
+add_action( 'woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_price', 5 );
 
+if( defined( 'YITH_WCWL' ) && ! function_exists( 'yith_wcwl_ajax_update_count' ) ){
+	function yith_wcwl_ajax_update_count(){
+		wp_send_json( array(
+		'count' => yith_wcwl_count_all_products()
+		) );
+	}
+	add_action( 'wp_ajax_yith_wcwl_update_wishlist_count', 'yith_wcwl_ajax_update_count' );
+	add_action( 'wp_ajax_nopriv_yith_wcwl_update_wishlist_count', 'yith_wcwl_ajax_update_count' );
+}
+
+add_action( 'wp_login', 'my_login_redirect' );
+
+function my_login_redirect(	) {
+    //is there a user to check?
+    if ($_GET['redirect_to'] != '') {
+		$redirect_to = $_GET['redirect_to'];
+		wp_redirect($redirect_to);
+		exit();
+    }
+}

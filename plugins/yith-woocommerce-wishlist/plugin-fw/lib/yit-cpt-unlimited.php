@@ -138,8 +138,10 @@ class YIT_CPT_Unlimited {
         add_action( 'admin_enqueue_scripts', array( $this, 'admin_assets' ) );
 
         // metaboxes
-        add_action( 'add_meta_boxes', array( $this, 'add_metabox_cptu' ), 2 );
-        add_action( 'add_meta_boxes', array( $this, 'add_metabox_item_fields' ), 2 );
+        if ( is_admin() ) {
+            add_action( 'init', array( $this, 'add_metabox_cptu' ) );
+            add_action( 'init', array( $this, 'add_metabox_item_fields' ) );
+        }
 
         // multiuploader
         if ( $this->_args['add_multiuploader'] ) {
@@ -1592,7 +1594,7 @@ class YIT_CPT_Unlimited {
     public function admin_assets() {
 	    $suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
         wp_enqueue_media();
-        wp_enqueue_script( 'yit-cptu', YIT_CORE_PLUGIN_URL . '/assets/js/yit-cpt-unlimited' . $suffix . 'js', array('jquery'), '', true );
+        wp_enqueue_script( 'yit-cptu', YIT_CORE_PLUGIN_URL . '/assets/js/yit-cpt-unlimited' . $suffix . '.js', array('jquery'), '', true );
     }
 
     /**

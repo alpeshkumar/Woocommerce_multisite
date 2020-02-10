@@ -41,10 +41,18 @@
 					<?php 
 
 				endif; 
+				if ( ! empty( $powered_by_text ) ) : ?>
+
+					<div class="site-info">
+						<?php echo wp_kses_data( $powered_by_text ); ?>
+					</div><!-- .site-info -->
+
+					<?php 
+
+				endif; 
+
 				?>
-				<div class="site-info">
-				<?php echo wp_kses_data( $powered_by_text ); ?>
-				</div><!-- .site-info -->
+				
 					</div>
 		</div><!-- .container -->
 	</footer><!-- #colophon -->
